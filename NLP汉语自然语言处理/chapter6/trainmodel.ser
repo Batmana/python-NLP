@@ -1,0 +1,2912 @@
+BEGIN OPTIONS
+useUnknownWordSignatures 0
+smoothInUnknownsThreshold 100
+smartMutation false
+useUnicodeType false
+unknownSuffixSize 1
+unknownPrefixSize 1
+flexiTag false
+useSignatureForKnownSmoothing false
+wordClassesFile null
+parserParams edu.stanford.nlp.parser.lexparser.ChineseTreebankParserParams
+forceCNF false
+doPCFG true
+doDep true
+freeDependencies false
+directional true
+genStop true
+distance true
+coarseDistance false
+dcTags true
+nPrune false
+
+BEGIN STATE_INDEX
+0=ROOT
+1=IP^ROOT
+2=.$$.
+3=NP^IP
+4=VP^IP-COMP
+5=NP^NP=MODIFIERNP
+6=NP^NP=MODIFIEDNP
+7=NR
+8=NN
+9=@NP^NP=MODIFIEDNP : NN ...
+10=CC
+11=@NP^NP=MODIFIEDNP : NN CC ...
+12=VV
+13=FRAG^ROOT
+14=@FRAG^ROOT : NN ...
+15=@FRAG^ROOT : NN NR ...
+16=NT
+17=@FRAG^ROOT : NN NR NT ...
+18=@FRAG^ROOT : NN NR NT NT ...
+19=@FRAG^ROOT : NN NR NT NT NN ...
+20=PU-PAREN
+21=@FRAG^ROOT : NN NR NT NT NN PU-PAREN ...
+22=@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... PU-PAREN
+23=@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... NR PU-PAREN
+24=@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... PU-DOU NR PU-PAREN
+25=PU-DOU
+26=@IP^ROOT : NP^IP ...
+27=VP^IP-CRD
+28=PU-ENDSENT
+29=@VP^IP-CRD : ... VP^VP-COMP
+30=VP^VP-COMP
+31=VP^VP-ADJT
+32=PU-COMMA
+33=LCP^VP-VPADJ
+34=VP^VP-COMP-VPADJ
+35=NP^LCP
+36=LC
+37=@VP^VP-COMP-VPADJ : ... NP^VP
+38=NP^VP
+39=VCD^VP
+40=AS
+41=CP^NP
+42=@NP^VP : CP^NP ...
+43=IP^CP=DEC
+44=DEC
+45=@NP^NP=MODIFIERNP : NN ...
+46=@NP^NP=MODIFIERNP : NN PU-DOU ...
+47=@NP^NP=MODIFIERNP : NN PU-DOU NN ...
+48=@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU ...
+49=@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN ...
+50=@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU ...
+51=@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN ...
+52=@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU ...
+53=@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU NN ...
+54=@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU ...
+55=ETC
+56=QP^NP
+57=CD
+58=CLP^QP
+59=M
+60=@VP^VP-COMP : ... NP^VP
+61=DNP^NP
+62=@NP^VP : DNP^NP ...
+63=NP^DNP
+64=DEG
+65=ADJP^NP
+66=JJ
+67=@IP^ROOT : ... PU-ENDSENT
+68=@IP^ROOT : ... IP^IP PU-ENDSENT
+69=IP^IP
+70=VC
+71=@NP^VP : QP^NP ...
+72=@NP^VP : QP^NP CP^NP ...
+73=@NP^VP : NP^NP=MODIFIERNP ...
+74=ADVP^IP^ADVP
+75=@IP^IP : ADVP^IP^ADVP ...
+76=AD~IP
+77=VP^IP-ADJT
+78=ADVP^VP-VPADJ^ADVP
+79=AD~VP
+80=NP^VP-VPADJ
+81=@VP^IP-ADJT : NP^VP-VPADJ ...
+82=@VP^IP-ADJT : NP^VP-VPADJ ADVP^VP-VPADJ^ADVP ...
+83=NP^NP=MODIFIERNP=CONJ
+84=@NP^NP=MODIFIEDNP : NP^NP=MODIFIERNP=CONJ ...
+85=NP^NP=MODIFIEDNP=CONJ
+86=PP^IP
+87=@IP^ROOT : PP^IP ...
+88=P
+89=NP^PP
+90=PN
+91=@IP^ROOT : PP^IP PU-COMMA ...
+92=@IP^ROOT : PP^IP PU-COMMA NP^IP ...
+93=@VP^IP-CRD : ... CC VP^VP-COMP
+94=DVP^VP-VPADJ
+95=VP^DVP-COMP
+96=DEV
+97=VA
+98=PU-QUOTE
+99=@VP^IP-CRD : PU-QUOTE ...
+100=@VP^IP-CRD : PU-QUOTE ... PU-QUOTE
+101=@VP^IP-CRD : PU-QUOTE ... VP^VP-ADJT PU-QUOTE
+102=PP^VP-VPADJ
+103=@VP^VP-ADJT : PP^VP-VPADJ ...
+104=LCP^PP
+105=IP^LCP
+106=@VP^IP-COMP : ... NP^VP
+107=VP^VP-CRD
+108=@VP^VP-CRD : ... VP^VP-COMP
+109=@VP^VP-CRD : ... PU-COMMA VP^VP-COMP
+110=@VP^VP-CRD : ... VP^VP-ADJT PU-COMMA VP^VP-COMP
+111=@VP^VP-CRD : ... PU-COMMA VP^VP-ADJT PU-COMMA VP^VP-COMP
+112=@VP^VP-CRD : ... VP^VP-COMP PU-COMMA VP^VP-ADJT PU-COMMA VP^VP-COMP
+113=@NP^DNP : NP^NP=MODIFIERNP=CONJ ...
+114=VP^VP-CRD-VPADJ
+115=ADVP^DVP^ADVP
+116=@ADVP^DVP^ADVP : ... AD~DVP
+117=AD~DVP
+118=@VP^VP-CRD-VPADJ : ... VP^VP-COMP
+119=@VP^VP-COMP : ... IP^VP=VVP
+120=IP^VP=VVP
+121=VV-IP
+122=DP^NP
+123=NP^NP
+124=DT
+125=VP^VP-ADJT-VPADJ
+126=SB
+127=@NP^IP : CP^NP ...
+128=@VP^IP-ADJT : LCP^VP-VPADJ ...
+129=@NP^IP : CP^NP NP^NP=MODIFIERNP ...
+130=OD
+131=@NP^NP=MODIFIEDNP : NN NN ...
+132=@NP^NP=MODIFIEDNP : NN NN NN ...
+133=@NP^NP=MODIFIEDNP : NN NN NN NN ...
+134=@IP^ROOT : NP^IP PU-COMMA ...
+135=PP^VP
+136=@VP^IP-CRD : PP^VP ...
+137=ADVP^PP^ADVP
+138=PP^PP
+139=AD~PP
+140=P-IP
+141=IP^PP=VVP
+142=@VP^VP-ADJT-VPADJ : ADVP^VP-VPADJ^ADVP ...
+143=@VP^IP-CRD : PP^VP PU-COMMA ...
+144=IP^VP
+145=@VP^IP-CRD : PP^VP PU-COMMA IP^VP ...
+146=@VP^VP-COMP : ... QP^VP
+147=QP^VP
+148=@NP^VP : CP^NP QP^NP ...
+149=DP^VP-VPADJ
+150=CLP^DP
+151=VE
+152=@NP^IP : NP^NP=MODIFIERNP=CONJ ...
+153=@IP^ROOT : ... PU-COMMA IP^IP PU-ENDSENT
+154=@IP^ROOT : ... IP^IP PU-COMMA IP^IP PU-ENDSENT
+155=@IP^IP : PP^IP ...
+156=@IP^IP : PP^IP PU-COMMA ...
+157=@NP^PP : DNP^NP ...
+158=@VP^IP-CRD : PP^VP PU-COMMA IP^VP PU-COMMA ...
+159=ADVP^VP^ADVP
+160=@NP^VP : NP^NP=MODIFIERNP=CONJ ...
+161=@NP^NP=MODIFIERNP=CONJ : NN ...
+162=@NP^NP=MODIFIERNP=CONJ : NN NN ...
+163=@NP^NP=MODIFIERNP=CONJ : NN NN NN ...
+164=@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU ...
+165=@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ...
+166=@NP^NP=MODIFIERNP=CONJ : NP^NP=MODIFIERNP ...
+167=@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ...
+168=@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ...
+169=IP^CP
+170=@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ...
+171=@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ...
+172=@NP^NP=MODIFIERNP : NN NN ...
+173=@NP^NP=MODIFIERNP : NN NN CC ...
+174=@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ...
+175=NP^NP=CONJ
+176=@NP^NP=CONJ : NP^NP=MODIFIERNP ...
+177=@NP^NP=MODIFIERNP : NN NN NN ...
+178=@VP^VP-COMP-VPADJ : ... IP^VP=VVP
+179=@VP^IP-CRD : ... VP^VP-ADJT
+180=CP^IP
+181=@IP^IP : CP^IP ...
+182=ADVP^CP
+183=CS
+184=@IP^IP : ... IP^IP
+185=@VP^VP-COMP-VPADJ : PU-QUOTE ...
+186=@VP^VP-ADJT : ADVP^VP-VPADJ^ADVP ...
+187=@VP^IP-ADJT : PP^VP-VPADJ ...
+188=@IP^IP : CP^IP PU-COMMA ...
+189=@IP^IP : CP^IP PU-COMMA ADVP^IP^ADVP ...
+190=@IP^IP : CP^IP PU-COMMA ADVP^IP^ADVP NP^IP ...
+191=@NP^IP : DP^NP ...
+192=@VP^IP-COMP : ... IP^VP=VVP
+193=@FRAG^ROOT : PU-PAREN ...
+
+BEGIN WORD_INDEX
+0=上海
+1=浦东
+2=开发
+3=与
+4=法制
+5=建设
+6=同步
+7=.$.
+8=新华社
+9=二月
+10=十日
+11=电
+12=（
+13=记者
+14=谢金虎
+15=、
+16=张持坚
+17=）
+18=近年
+19=来
+20=颁布
+21=实行
+22=了
+23=涉及
+24=经济
+25=贸易
+26=规划
+27=科技
+28=文教
+29=等
+30=领域
+31=的
+32=七十一
+33=件
+34=法规性
+35=文件
+36=，
+37=确保
+38=有序
+39=进行
+40=。
+41=开放
+42=是
+43=一
+44=项
+45=振兴
+46=现代化
+47=金融
+48=中心
+49=跨世纪
+50=工程
+51=因此
+52=大量
+53=出现
+54=以前
+55=不
+56=曾
+57=遇到
+58=过
+59=新
+60=情况
+61=问题
+62=对
+63=此
+64=简单
+65=采取
+66=“
+67=干
+68=段
+69=时间
+70=积累
+71=经验
+72=以后
+73=再
+74=制定
+75=法规
+76=条例
+77=”
+78=做法
+79=而
+80=借鉴
+81=发达
+82=国家
+83=和
+84=深圳
+85=特区
+86=教训
+87=聘请
+88=国内外
+89=有关
+90=专家
+91=学者
+92=积极
+93=及时
+94=地
+95=推出
+96=使
+97=这些
+98=活动
+99=就
+100=被
+101=纳入
+102=轨道
+103=去年
+104=初
+105=新区
+106=诞生
+107=中国
+108=第一
+109=家
+110=医疗
+111=机构
+112=药品
+113=采购
+114=服务
+115=正
+116=因为
+117=开始
+118=比较
+119=规范
+120=运转
+121=至今
+122=成交
+123=一亿多
+124=元
+125=没有
+126=发现
+127=例
+128=回扣
+129=建筑
+130=主要
+131=年
+132=有
+133=数百
+134=公司
+135=四千余
+136=个
+137=工地
+138=遍布
+139=在
+140=这
+141=片
+142=热土
+143=上
+144=为
+145=行为
+146=防止
+147=无序
+148=现象
+149=管委会
+150=根据
+151=上海市
+152=规定
+153=结合
+154=实际
+155=出台
+156=系列
+157=市场
+158=其中
+159=包括
+160=施工
+161=招投标
+162=管理
+163=办法
+164=拆迁
+165=工作
+166=若干
+167=整治
+168=违章
+169=实施
+170=通信
+171=设施
+172=及
+173=管线
+174=配套
+175=意见
+176=环境
+177=暂行
+178=基本
+179=做到
+180=每
+181=环节
+182=都
+183=明确
+184=又
+185=具体
+186=进
+187=区
+188=部门
+189=先
+190=送上
+191=然后
+192=专门
+193=队伍
+194=监督
+195=检查
+196=尽管
+197=有些
+198=粗
+199=还
+200=只
+201=有待
+202=实践
+203=中
+204=逐步
+205=完善
+206=但
+207=种
+208=紧跟
+209=社会
+210=受到
+211=投资者
+212=好
+213=评
+214=他们
+215=认为
+216=到
+217=投资
+218=办事
+219=章法
+220=讲
+221=规矩
+222=利益
+223=能
+224=得到
+225=保障
+226=完
+227=UNK
+
+BEGIN TAG_INDEX
+0=NR
+1=NN
+2=CC
+3=VV
+4=.$$.
+5=NT
+6=PU-PAREN
+7=PU-DOU
+8=LC
+9=AS
+10=ETC
+11=DEC
+12=CD
+13=M
+14=PU-COMMA
+15=DEG
+16=JJ
+17=PU-ENDSENT
+18=VC
+19=AD~IP
+20=AD~VP
+21=P
+22=PN
+23=VA
+24=DEV
+25=PU-QUOTE
+26=AD~DVP
+27=VV-IP
+28=DT
+29=SB
+30=OD
+31=AD~PP
+32=P-IP
+33=VE
+34=CS
+
+BEGIN LEXICON edu.stanford.nlp.parser.lexparser.ChineseUnknownWordModel
+"NR" -> "上海" SEEN 4.0
+"NR" -> ".*." SEEN 19.0
+"NR" -> "浦东" SEEN 10.0
+"NN" -> ".*." SEEN 128.0
+"CC" -> "与" SEEN 1.0
+"VV" -> "开发" SEEN 1.0
+"CC" -> ".*." SEEN 8.0
+"NN" -> "开发" SEEN 4.0
+"VV" -> ".*." SEEN 48.0
+".$$." -> ".$." SEEN 11.0
+"NN" -> "建设" SEEN 5.0
+".$$." -> ".*." SEEN 11.0
+"NN" -> "法制" SEEN 3.0
+"VV" -> "同步" SEEN 1.0
+"NT" -> ".*." SEEN 5.0
+"PU-PAREN" -> ".*." SEEN 4.0
+"VV" -> "建设" SEEN 1.0
+"PU-DOU" -> ".*." SEEN 15.0
+"DEV" -> "的" SEEN 1.0
+"PU-DOU" -> "、" SEEN 15.0
+"LC" -> ".*." SEEN 5.0
+"P" -> "等" SEEN 1.0
+"NN" -> "新华社" SEEN 1.0
+"AS" -> ".*." SEEN 7.0
+"NN" -> "电" SEEN 1.0
+"PU-PAREN" -> "（" SEEN 2.0
+"ETC" -> ".*." SEEN 3.0
+"DEC" -> ".*." SEEN 11.0
+"NT" -> "二月" SEEN 1.0
+"NN" -> "记者" SEEN 1.0
+"CD" -> ".*." SEEN 10.0
+"M" -> ".*." SEEN 14.0
+"NR" -> "谢金虎" SEEN 1.0
+"PU-COMMA" -> ".*." SEEN 30.0
+"NT" -> "十日" SEEN 1.0
+"DEG" -> ".*." SEEN 4.0
+"NR" -> "张持坚" SEEN 1.0
+"DEG" -> "的" SEEN 4.0
+"JJ" -> ".*." SEEN 15.0
+"PU-ENDSENT" -> ".*." SEEN 8.0
+"VC" -> ".*." SEEN 6.0
+"AD~IP" -> ".*." SEEN 2.0
+"VV" -> "涉及" SEEN 1.0
+"DEC" -> "的" SEEN 11.0
+"AD~VP" -> ".*." SEEN 20.0
+"P" -> ".*." SEEN 5.0
+"VV" -> "实行" SEEN 1.0
+"PN" -> ".*." SEEN 4.0
+"PU-PAREN" -> "）" SEEN 2.0
+"NT" -> "近年" SEEN 1.0
+"VV" -> "颁布" SEEN 1.0
+"ETC" -> "等" SEEN 3.0
+"VA" -> ".*." SEEN 5.0
+"NN" -> "贸易" SEEN 2.0
+"DEV" -> ".*." SEEN 2.0
+"NN" -> "经济" SEEN 5.0
+"PU-QUOTE" -> ".*." SEEN 4.0
+"NN" -> "科技" SEEN 1.0
+"AD~DVP" -> ".*." SEEN 2.0
+"LC" -> "来" SEEN 1.0
+"NN" -> "规划" SEEN 1.0
+"VV-IP" -> ".*." SEEN 5.0
+"DT" -> ".*." SEEN 6.0
+"NN" -> "文教" SEEN 1.0
+"SB" -> ".*." SEEN 1.0
+"OD" -> ".*." SEEN 1.0
+"AS" -> "了" SEEN 6.0
+"NN" -> "领域" SEEN 1.0
+"AD~PP" -> ".*." SEEN 1.0
+"AD~IP" -> "因此" SEEN 1.0
+"AD~VP" -> "大量" SEEN 1.0
+"P-IP" -> ".*." SEEN 2.0
+"M" -> "项" SEEN 2.0
+"JJ" -> "跨世纪" SEEN 1.0
+"VE" -> ".*." SEEN 4.0
+"NN" -> "文件" SEEN 5.0
+"CS" -> ".*." SEEN 1.0
+"NN" -> "法规性" SEEN 4.0
+"AD~VP" -> "不" SEEN 2.0
+"VV" -> "进行" SEEN 1.0
+"VV" -> "确保" SEEN 1.0
+"NN" -> "进行" SEEN 1.0
+"CD" -> "一" SEEN 5.0
+"NN" -> "开放" SEEN 1.0
+"PN" -> "此" SEEN 1.0
+"PU-COMMA" -> "，" SEEN 30.0
+"JJ" -> "新" SEEN 2.0
+"P" -> "对" SEEN 1.0
+"CD" -> "七十一" SEEN 1.0
+"M" -> "件" SEEN 1.0
+"AD~VP" -> "曾" SEEN 1.0
+"VV" -> "振兴" SEEN 1.0
+"NN" -> "金融" SEEN 1.0
+"NN" -> "现代化" SEEN 1.0
+"NN" -> "中心" SEEN 2.0
+"NN" -> "工程" SEEN 2.0
+"NT" -> "以前" SEEN 1.0
+"AS" -> "过" SEEN 1.0
+"JJ" -> "有序" SEEN 1.0
+"VV" -> "出现" SEEN 3.0
+"VC" -> "是" SEEN 6.0
+"PU-ENDSENT" -> "。" SEEN 8.0
+"VV" -> "遇到" SEEN 1.0
+"NN" -> "问题" SEEN 1.0
+"NN" -> "情况" SEEN 1.0
+"AD~VP" -> "一" SEEN 2.0
+"VV" -> "干" SEEN 1.0
+"LC" -> "以后" SEEN 1.0
+"JJ" -> "发达" SEEN 1.0
+"VV" -> "采取" SEEN 1.0
+"NN" -> "时间" SEEN 1.0
+"VV" -> "积累" SEEN 1.0
+"NN" -> "经验" SEEN 2.0
+"AD~DVP" -> "积极" SEEN 1.0
+"DEV" -> "地" SEEN 1.0
+"AD~DVP" -> "及时" SEEN 1.0
+"M" -> "段" SEEN 1.0
+"VV" -> "制定" SEEN 3.0
+"JJ" -> "有关" SEEN 3.0
+"AD~VP" -> "及时" SEEN 1.0
+"NN" -> "法规" SEEN 1.0
+"NN" -> "条例" SEEN 1.0
+"CC" -> "而" SEEN 2.0
+"NN" -> "做法" SEEN 2.0
+"CC" -> "和" SEEN 4.0
+"VV" -> "借鉴" SEEN 1.0
+"NN" -> "国家" SEEN 2.0
+"PU-QUOTE" -> "”" SEEN 2.0
+"NR" -> "深圳" SEEN 1.0
+"NN" -> "特区" SEEN 1.0
+"VV" -> "聘请" SEEN 1.0
+"P-IP" -> "因为" SEEN 1.0
+"VA" -> "简单" SEEN 1.0
+"NN" -> "教训" SEEN 1.0
+"NN" -> "国内外" SEEN 2.0
+"NN" -> "学者" SEEN 1.0
+"PU-QUOTE" -> "“" SEEN 2.0
+"NN" -> "专家" SEEN 1.0
+"VV" -> "推出" SEEN 1.0
+"AD~VP" -> "再" SEEN 1.0
+"LC" -> "初" SEEN 1.0
+"M" -> "家" SEEN 2.0
+"VA" -> "规范" SEEN 1.0
+"NT" -> "去年" SEEN 1.0
+"AD~VP" -> "比较" SEEN 2.0
+"NN" -> "活动" SEEN 3.0
+"VV" -> "纳入" SEEN 1.0
+"NN" -> "轨道" SEEN 1.0
+"NN" -> "新区" SEEN 4.0
+"VV" -> "诞生" SEEN 1.0
+"NR" -> "中国" SEEN 1.0
+"AD~PP" -> "正" SEEN 1.0
+"NN" -> "机构" SEEN 1.0
+"NN" -> "医疗" SEEN 1.0
+"NN" -> "采购" SEEN 1.0
+"NN" -> "药品" SEEN 2.0
+"M" -> "元" SEEN 1.0
+"OD" -> "第一" SEEN 1.0
+"M" -> "例" SEEN 1.0
+"NN" -> "服务" SEEN 1.0
+"VV" -> "规范" SEEN 2.0
+"VV" -> "开始" SEEN 1.0
+"AD~VP" -> "就" SEEN 2.0
+"CD" -> "一亿多" SEEN 1.0
+"SB" -> "被" SEEN 1.0
+"VV" -> "成交" SEEN 1.0
+"VV" -> "至今" SEEN 1.0
+"VV-IP" -> "使" SEEN 1.0
+"VV" -> "运转" SEEN 1.0
+"DT" -> "这些" SEEN 3.0
+"VV" -> "发现" SEEN 1.0
+"VV" -> "没有" SEEN 1.0
+"NN" -> "建筑" SEEN 6.0
+"M" -> "片" SEEN 1.0
+"NN" -> "回扣" SEEN 1.0
+"JJ" -> "无序" SEEN 1.0
+"P" -> "根据" SEEN 1.0
+"M" -> "个" SEEN 2.0
+"NN" -> "公司" SEEN 2.0
+"LC" -> "上" SEEN 1.0
+"NN" -> "工地" SEEN 2.0
+"CD" -> "数百" SEEN 1.0
+"VV" -> "遍布" SEEN 1.0
+"VV-IP" -> "防止" SEEN 1.0
+"CD" -> "四千余" SEEN 1.0
+"M" -> "年" SEEN 1.0
+"NN" -> "热土" SEEN 1.0
+"DT" -> "这" SEEN 2.0
+"NN" -> "行为" SEEN 1.0
+"M" -> "系列" SEEN 1.0
+"JJ" -> "主要" SEEN 1.0
+"NN" -> "管委会" SEEN 1.0
+"NN" -> "现象" SEEN 1.0
+"NR" -> "上海市" SEEN 1.0
+"VV" -> "出台" SEEN 1.0
+"NN" -> "规定" SEEN 4.0
+"VV" -> "结合" SEEN 1.0
+"NN" -> "实际" SEEN 1.0
+"NN" -> "市场" SEEN 1.0
+"VV" -> "包括" SEEN 1.0
+"P" -> "在" SEEN 2.0
+"NN" -> "其中" SEEN 1.0
+"NN" -> "招投标" SEEN 1.0
+"VA" -> "明确" SEEN 1.0
+"NN" -> "施工" SEEN 2.0
+"JJ" -> "暂行" SEEN 2.0
+"NN" -> "办法" SEEN 3.0
+"AD~VP" -> "都" SEEN 1.0
+"NN" -> "管理" SEEN 2.0
+"NN" -> "工作" SEEN 1.0
+"VV" -> "整治" SEEN 1.0
+"VE" -> "有" SEEN 4.0
+"NN" -> "拆迁" SEEN 1.0
+"AD~VP" -> "基本" SEEN 1.0
+"NN" -> "实施" SEEN 1.0
+"VV-IP" -> "做到" SEEN 1.0
+"DT" -> "每" SEEN 1.0
+"AD~VP" -> "先" SEEN 1.0
+"CD" -> "若干" SEEN 1.0
+"NN" -> "设施" SEEN 1.0
+"NN" -> "通信" SEEN 1.0
+"AD~VP" -> "然后" SEEN 1.0
+"NN" -> "管线" SEEN 1.0
+"AD~VP" -> "又" SEEN 1.0
+"CC" -> "及" SEEN 1.0
+"NN" -> "意见" SEEN 1.0
+"VA" -> "具体" SEEN 1.0
+"NN" -> "配套" SEEN 1.0
+"P-IP" -> "为" SEEN 1.0
+"NN" -> "环境" SEEN 1.0
+"NN" -> "环节" SEEN 1.0
+"JJ" -> "违章" SEEN 1.0
+"VV" -> "进" SEEN 1.0
+"NN" -> "区" SEEN 1.0
+"NN" -> "部门" SEEN 1.0
+"VV" -> "送上" SEEN 1.0
+"NN" -> "队伍" SEEN 1.0
+"PN" -> "他们" SEEN 1.0
+"NN" -> "检查" SEEN 1.0
+"M" -> "种" SEEN 1.0
+"NN" -> "监督" SEEN 1.0
+"LC" -> "中" SEEN 1.0
+"JJ" -> "好" SEEN 1.0
+"NN" -> "实践" SEEN 1.0
+"VV-IP" -> "认为" SEEN 1.0
+"VV" -> "完善" SEEN 1.0
+"JJ" -> "专门" SEEN 1.0
+"NN" -> "社会" SEEN 1.0
+"VA" -> "粗" SEEN 1.0
+"VV" -> "受到" SEEN 1.0
+"VV-IP" -> "有待" SEEN 1.0
+"NN" -> "投资者" SEEN 1.0
+"PN" -> "有些" SEEN 2.0
+"AD~VP" -> "还" SEEN 1.0
+"VV" -> "紧跟" SEEN 1.0
+"NN" -> "评" SEEN 1.0
+"AD~VP" -> "逐步" SEEN 1.0
+"VV" -> "投资" SEEN 1.0
+"NN" -> "章法" SEEN 1.0
+"VV" -> "到" SEEN 1.0
+"NN" -> "办事" SEEN 1.0
+"AD~VP" -> "只" SEEN 1.0
+"NN" -> "规矩" SEEN 1.0
+"VV" -> "能" SEEN 1.0
+"AD~IP" -> "但" SEEN 1.0
+"VV" -> "讲" SEEN 1.0
+"NN" -> "利益" SEEN 1.0
+"NN" -> "保障" SEEN 1.0
+"VV" -> "完" SEEN 1.0
+"VV" -> "得到" SEEN 1.0
+"CS" -> "尽管" SEEN 1.0
+".*." -> "完" SEEN 1.0
+".*." -> "保障" SEEN 1.0
+".*." -> "得到" SEEN 1.0
+".*." -> "能" SEEN 1.0
+".*." -> "利益" SEEN 1.0
+".*." -> "规矩" SEEN 1.0
+".*." -> "讲" SEEN 1.0
+".*." -> "章法" SEEN 1.0
+".*." -> "办事" SEEN 1.0
+".*." -> "投资" SEEN 1.0
+".*." -> "到" SEEN 1.0
+".*." -> "认为" SEEN 1.0
+".*." -> "他们" SEEN 1.0
+".*." -> "评" SEEN 1.0
+".*." -> "好" SEEN 1.0
+".*." -> "投资者" SEEN 1.0
+".*." -> "受到" SEEN 1.0
+".*." -> "社会" SEEN 1.0
+".*." -> "紧跟" SEEN 1.0
+".*." -> "种" SEEN 1.0
+".*." -> "但" SEEN 1.0
+".*." -> "完善" SEEN 1.0
+".*." -> "逐步" SEEN 1.0
+".*." -> "中" SEEN 1.0
+".*." -> "实践" SEEN 1.0
+".*." -> "有待" SEEN 1.0
+".*." -> "只" SEEN 1.0
+".*." -> "还" SEEN 1.0
+".*." -> "粗" SEEN 1.0
+".*." -> "有些" SEEN 2.0
+".*." -> "尽管" SEEN 1.0
+".*." -> "检查" SEEN 1.0
+".*." -> "监督" SEEN 1.0
+".*." -> "队伍" SEEN 1.0
+".*." -> "专门" SEEN 1.0
+".*." -> "然后" SEEN 1.0
+".*." -> "送上" SEEN 1.0
+".*." -> "先" SEEN 1.0
+".*." -> "部门" SEEN 1.0
+".*." -> "区" SEEN 1.0
+".*." -> "进" SEEN 1.0
+".*." -> "具体" SEEN 1.0
+".*." -> "又" SEEN 1.0
+".*." -> "明确" SEEN 1.0
+".*." -> "都" SEEN 1.0
+".*." -> "环节" SEEN 1.0
+".*." -> "每" SEEN 1.0
+".*." -> "做到" SEEN 1.0
+".*." -> "基本" SEEN 1.0
+".*." -> "暂行" SEEN 2.0
+".*." -> "环境" SEEN 1.0
+".*." -> "意见" SEEN 1.0
+".*." -> "配套" SEEN 1.0
+".*." -> "管线" SEEN 1.0
+".*." -> "及" SEEN 1.0
+".*." -> "设施" SEEN 1.0
+".*." -> "通信" SEEN 1.0
+".*." -> "实施" SEEN 1.0
+".*." -> "违章" SEEN 1.0
+".*." -> "整治" SEEN 1.0
+".*." -> "若干" SEEN 1.0
+".*." -> "工作" SEEN 1.0
+".*." -> "拆迁" SEEN 1.0
+".*." -> "办法" SEEN 3.0
+".*." -> "管理" SEEN 2.0
+".*." -> "招投标" SEEN 1.0
+".*." -> "施工" SEEN 2.0
+".*." -> "包括" SEEN 1.0
+".*." -> "其中" SEEN 1.0
+".*." -> "市场" SEEN 1.0
+".*." -> "系列" SEEN 1.0
+".*." -> "出台" SEEN 1.0
+".*." -> "实际" SEEN 1.0
+".*." -> "结合" SEEN 1.0
+".*." -> "规定" SEEN 4.0
+".*." -> "上海市" SEEN 1.0
+".*." -> "根据" SEEN 1.0
+".*." -> "管委会" SEEN 1.0
+".*." -> "现象" SEEN 1.0
+".*." -> "无序" SEEN 1.0
+".*." -> "防止" SEEN 1.0
+".*." -> "行为" SEEN 1.0
+".*." -> "为" SEEN 1.0
+".*." -> "上" SEEN 1.0
+".*." -> "热土" SEEN 1.0
+".*." -> "片" SEEN 1.0
+".*." -> "这" SEEN 2.0
+".*." -> "在" SEEN 2.0
+".*." -> "遍布" SEEN 1.0
+".*." -> "工地" SEEN 2.0
+".*." -> "个" SEEN 2.0
+".*." -> "四千余" SEEN 1.0
+".*." -> "公司" SEEN 2.0
+".*." -> "数百" SEEN 1.0
+".*." -> "有" SEEN 4.0
+".*." -> "年" SEEN 1.0
+".*." -> "主要" SEEN 1.0
+".*." -> "建筑" SEEN 6.0
+".*." -> "回扣" SEEN 1.0
+".*." -> "例" SEEN 1.0
+".*." -> "发现" SEEN 1.0
+".*." -> "没有" SEEN 1.0
+".*." -> "元" SEEN 1.0
+".*." -> "一亿多" SEEN 1.0
+".*." -> "成交" SEEN 1.0
+".*." -> "至今" SEEN 1.0
+".*." -> "运转" SEEN 1.0
+".*." -> "规范" SEEN 3.0
+".*." -> "比较" SEEN 2.0
+".*." -> "开始" SEEN 1.0
+".*." -> "因为" SEEN 1.0
+".*." -> "正" SEEN 1.0
+".*." -> "服务" SEEN 1.0
+".*." -> "采购" SEEN 1.0
+".*." -> "药品" SEEN 2.0
+".*." -> "机构" SEEN 1.0
+".*." -> "医疗" SEEN 1.0
+".*." -> "家" SEEN 2.0
+".*." -> "第一" SEEN 1.0
+".*." -> "中国" SEEN 1.0
+".*." -> "诞生" SEEN 1.0
+".*." -> "新区" SEEN 4.0
+".*." -> "初" SEEN 1.0
+".*." -> "去年" SEEN 1.0
+".*." -> "轨道" SEEN 1.0
+".*." -> "纳入" SEEN 1.0
+".*." -> "被" SEEN 1.0
+".*." -> "就" SEEN 2.0
+".*." -> "活动" SEEN 3.0
+".*." -> "这些" SEEN 3.0
+".*." -> "使" SEEN 1.0
+".*." -> "推出" SEEN 1.0
+".*." -> "地" SEEN 1.0
+".*." -> "及时" SEEN 2.0
+".*." -> "积极" SEEN 1.0
+".*." -> "学者" SEEN 1.0
+".*." -> "专家" SEEN 1.0
+".*." -> "有关" SEEN 3.0
+".*." -> "国内外" SEEN 2.0
+".*." -> "聘请" SEEN 1.0
+".*." -> "教训" SEEN 1.0
+".*." -> "特区" SEEN 1.0
+".*." -> "深圳" SEEN 1.0
+".*." -> "和" SEEN 4.0
+".*." -> "国家" SEEN 2.0
+".*." -> "发达" SEEN 1.0
+".*." -> "借鉴" SEEN 1.0
+".*." -> "而" SEEN 2.0
+".*." -> "做法" SEEN 2.0
+".*." -> "”" SEEN 2.0
+".*." -> "条例" SEEN 1.0
+".*." -> "法规" SEEN 1.0
+".*." -> "制定" SEEN 3.0
+".*." -> "再" SEEN 1.0
+".*." -> "以后" SEEN 1.0
+".*." -> "经验" SEEN 2.0
+".*." -> "积累" SEEN 1.0
+".*." -> "时间" SEEN 1.0
+".*." -> "段" SEEN 1.0
+".*." -> "干" SEEN 1.0
+".*." -> "“" SEEN 2.0
+".*." -> "采取" SEEN 1.0
+".*." -> "简单" SEEN 1.0
+".*." -> "此" SEEN 1.0
+".*." -> "对" SEEN 1.0
+".*." -> "问题" SEEN 1.0
+".*." -> "情况" SEEN 1.0
+".*." -> "新" SEEN 2.0
+".*." -> "过" SEEN 1.0
+".*." -> "遇到" SEEN 1.0
+".*." -> "曾" SEEN 1.0
+".*." -> "不" SEEN 2.0
+".*." -> "以前" SEEN 1.0
+".*." -> "出现" SEEN 3.0
+".*." -> "大量" SEEN 1.0
+".*." -> "因此" SEEN 1.0
+".*." -> "工程" SEEN 2.0
+".*." -> "跨世纪" SEEN 1.0
+".*." -> "中心" SEEN 2.0
+".*." -> "金融" SEEN 1.0
+".*." -> "现代化" SEEN 1.0
+".*." -> "振兴" SEEN 1.0
+".*." -> "项" SEEN 2.0
+".*." -> "一" SEEN 7.0
+".*." -> "是" SEEN 6.0
+".*." -> "开放" SEEN 1.0
+".*." -> "。" SEEN 8.0
+".*." -> "进行" SEEN 2.0
+".*." -> "有序" SEEN 1.0
+".*." -> "确保" SEEN 1.0
+".*." -> "，" SEEN 30.0
+".*." -> "文件" SEEN 5.0
+".*." -> "法规性" SEEN 4.0
+".*." -> "件" SEEN 1.0
+".*." -> "七十一" SEEN 1.0
+".*." -> "的" SEEN 16.0
+".*." -> "领域" SEEN 1.0
+".*." -> "等" SEEN 4.0
+".*." -> "文教" SEEN 1.0
+".*." -> "科技" SEEN 1.0
+".*." -> "规划" SEEN 1.0
+".*." -> "贸易" SEEN 2.0
+".*." -> "经济" SEEN 5.0
+".*." -> "涉及" SEEN 1.0
+".*." -> "了" SEEN 6.0
+".*." -> "实行" SEEN 1.0
+".*." -> "颁布" SEEN 1.0
+".*." -> "来" SEEN 1.0
+".*." -> "近年" SEEN 1.0
+".*." -> "）" SEEN 2.0
+".*." -> "张持坚" SEEN 1.0
+".*." -> "、" SEEN 15.0
+".*." -> "谢金虎" SEEN 1.0
+".*." -> "记者" SEEN 1.0
+".*." -> "（" SEEN 2.0
+".*." -> "电" SEEN 1.0
+".*." -> "十日" SEEN 1.0
+".*." -> "二月" SEEN 1.0
+".*." -> "新华社" SEEN 1.0
+".*." -> ".$." SEEN 11.0
+".*." -> "同步" SEEN 1.0
+".*." -> "建设" SEEN 6.0
+".*." -> "法制" SEEN 3.0
+".*." -> "与" SEEN 1.0
+".*." -> "开发" SEEN 5.0
+".*." -> "浦东" SEEN 10.0
+".*." -> "上海" SEEN 4.0
+".*." -> ".*." SEEN 416.0
+"NR" -> ".*." UNSEEN 2.0
+"P-IP" -> ".*." UNSEEN 2.0
+"NN" -> ".*." UNSEEN 46.0
+"VE" -> ".*." UNSEEN 1.0
+"CC" -> ".*." UNSEEN 1.0
+"CS" -> ".*." UNSEEN 1.0
+"VV" -> ".*." UNSEEN 23.0
+"NT" -> ".*." UNSEEN 1.0
+"LC" -> ".*." UNSEEN 3.0
+"CD" -> ".*." UNSEEN 4.0
+"M" -> ".*." UNSEEN 8.0
+"JJ" -> ".*." UNSEEN 6.0
+"AD~IP" -> ".*." UNSEEN 1.0
+"AD~VP" -> ".*." UNSEEN 9.0
+"P" -> ".*." UNSEEN 2.0
+"PN" -> ".*." UNSEEN 2.0
+"VA" -> ".*." UNSEEN 4.0
+"VV-IP" -> ".*." UNSEEN 4.0
+"DT" -> ".*." UNSEEN 2.0
+"OD" -> ".*." UNSEEN 1.0
+".*." -> ".*." UNSEEN 124.0
+"AD~PP" -> ".*." UNSEEN 1.0
+smooth[0] = 1.0
+smooth[1] = 0.2
+
+BEGIN UNARY_GRAMMAR
+"NP^VP-VPADJ" -> "NT" -0.6931472
+"IP^PP=VVP" -> "VP^IP-ADJT" -0.6931472
+"CP^NP" -> "IP^CP" -2.4849067
+"CLP^QP" -> "M" 0.0
+"ADVP^VP-VPADJ^ADVP" -> "AD~VP" 0.0
+"IP^IP" -> "VP^IP-COMP" -2.9957323
+"QP^NP" -> "CD" -2.3025851
+"ADVP^CP" -> "CS" 0.0
+"NP^NP=MODIFIERNP" -> "NR" -0.9444616
+"ADVP^PP^ADVP" -> "AD~PP" 0.0
+"ADJP^NP" -> "JJ" 0.0
+"NP^PP" -> "PN" -0.6931472
+"VP^VP-COMP-VPADJ" -> "VA" -2.3978953
+"NP^IP" -> "NR" -3.1354942
+"ADVP^IP^ADVP" -> "AD~IP" 0.0
+"DP^NP" -> "DT" -0.91629076
+"VP^IP-COMP" -> "VV" -1.704748
+"IP^IP" -> "VP^IP-ADJT" -1.609438
+"NP^IP" -> "NN" -1.5260563
+"NP^NP=MODIFIERNP" -> "NN" -2.1972246
+"NP^NP=MODIFIEDNP" -> "NN" -0.36000273
+"ADVP^VP^ADVP" -> "AD~VP" 0.0
+"VP^VP-COMP" -> "VV" -3.0445225
+"NP^NP=MODIFIEDNP=CONJ" -> "NR" -1.3862944
+"IP^VP" -> "VP^IP-COMP" -1.3862944
+"IP^PP=VVP" -> "VP^IP-CRD" -0.6931472
+"NP^IP" -> "PN" -2.036882
+"NP^NP=MODIFIERNP=CONJ" -> "NN" -2.0794415
+"NP^VP" -> "NR" -2.944439
+"IP^CP=DEC" -> "VP^IP-ADJT" -1.299283
+"NP^IP" -> "CP^NP" -3.1354942
+"NP^LCP" -> "NN" -1.3862944
+"IP^LCP" -> "VP^IP-COMP" 0.0
+"CLP^DP" -> "M" 0.0
+"IP^CP" -> "VP^IP-COMP" -0.6931472
+"VP^VP-COMP-VPADJ" -> "VV" -1.299283
+"NP^VP" -> "NN" -1.8458267
+"IP^CP=DEC" -> "VP^IP-COMP" -1.299283
+"IP^CP=DEC" -> "VP^IP-CRD" -1.299283
+"NP^LCP" -> "NT" -0.6931472
+"NP^NP" -> "NN" -0.6931472
+"IP^VP=VVP" -> "VP^IP-ADJT" -0.91629076
+"IP^VP=VVP" -> "VP^IP-COMP" -1.609438
+"VP^DVP-COMP" -> "VA" 0.0
+"VP^VP-COMP" -> "VA" -3.0445225
+
+BEGIN BINARY_GRAMMAR
+"VP^VP-ADJT-VPADJ" -> "ADVP^VP-VPADJ^ADVP" "VP^VP-ADJT-VPADJ" -1.609438
+"VP^VP-COMP" -> "VV" "VP^VP-COMP" -3.0445225
+"IP^IP" -> "@IP^IP : ... IP^IP" "IP^IP" -2.3025851
+"@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU ..." -> "NN" "@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN ..." 0.0
+"@NP^NP=MODIFIERNP : NN PU-DOU ..." -> "NN" "@NP^NP=MODIFIERNP : NN PU-DOU NN ..." 0.0
+"@FRAG^ROOT : NN NR NT NT ..." -> "NN" "@FRAG^ROOT : NN NR NT NT NN ..." 0.0
+"@FRAG^ROOT : NN NR NT NT NN PU-PAREN ..." -> "@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... PU-PAREN" "PU-PAREN" 0.0
+"@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU ..." -> "NN" "@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN ..." 0.0
+"@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU ..." -> "NN" "@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU NN ..." 0.0
+"@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU ..." -> "NN" "ETC" 0.0
+"@VP^IP-CRD : PU-QUOTE ..." -> "@VP^IP-CRD : PU-QUOTE ... PU-QUOTE" "PU-QUOTE" 0.0
+"@NP^NP=MODIFIEDNP : NN NN NN ..." -> "NN" "@NP^NP=MODIFIEDNP : NN NN NN NN ..." 0.0
+"@NP^NP=MODIFIERNP=CONJ : NN NN ..." -> "NN" "@NP^NP=MODIFIERNP=CONJ : NN NN NN ..." 0.0
+"@NP^NP=MODIFIERNP : NN NN ..." -> "CC" "@NP^NP=MODIFIERNP : NN NN CC ..." -0.6931472
+"@IP^IP : CP^IP PU-COMMA ..." -> "ADVP^IP^ADVP" "@IP^IP : CP^IP PU-COMMA ADVP^IP^ADVP ..." 0.0
+"@NP^NP=MODIFIEDNP : NN ..." -> "CC" "@NP^NP=MODIFIEDNP : NN CC ..." -0.6931472
+"QP^NP" -> "OD" "CLP^QP" -2.3025851
+"@NP^NP=MODIFIEDNP : NN CC ..." -> "NN" "NN" 0.0
+"FRAG^ROOT" -> "NN" "@FRAG^ROOT : NN ..." -0.6931472
+"@FRAG^ROOT : NN NR NT ..." -> "NT" "@FRAG^ROOT : NN NR NT NT ..." 0.0
+"@VP^IP-ADJT : NP^VP-VPADJ ..." -> "ADVP^VP-VPADJ^ADVP" "@VP^IP-ADJT : NP^VP-VPADJ ADVP^VP-VPADJ^ADVP ..." 0.0
+"DP^VP-VPADJ" -> "DT" "CLP^DP" 0.0
+"@NP^NP=MODIFIERNP=CONJ : NN ..." -> "NN" "@NP^NP=MODIFIERNP=CONJ : NN NN ..." 0.0
+"VP^VP-COMP-VPADJ" -> "VV" "NP^VP" -1.4816046
+"VP^VP-COMP-VPADJ" -> "VC" "NP^VP" -3.0910425
+"@FRAG^ROOT : NN NR NT NT NN ..." -> "PU-PAREN" "@FRAG^ROOT : NN NR NT NT NN PU-PAREN ..." 0.0
+"@IP^ROOT : ... PU-ENDSENT" -> "@IP^ROOT : ... IP^IP PU-ENDSENT" "IP^IP" 0.0
+"ADVP^DVP^ADVP" -> "@ADVP^DVP^ADVP : ... AD~DVP" "AD~DVP" 0.0
+"@NP^NP=MODIFIEDNP : NN NN ..." -> "NN" "@NP^NP=MODIFIEDNP : NN NN NN ..." 0.0
+"PP^PP" -> "P-IP" "IP^PP=VVP" 0.0
+"@VP^IP-CRD : PP^VP ..." -> "PU-COMMA" "@VP^IP-CRD : PP^VP PU-COMMA ..." 0.0
+"@IP^IP : PP^IP ..." -> "PU-COMMA" "@IP^IP : PP^IP PU-COMMA ..." 0.0
+"@IP^IP : CP^IP ..." -> "PU-COMMA" "@IP^IP : CP^IP PU-COMMA ..." 0.0
+"VP^VP-COMP-VPADJ" -> "VV" "AS" -3.0910425
+"NP^IP" -> "NN" "NN" -2.442347
+"@IP^ROOT : PP^IP ..." -> "PU-COMMA" "@IP^ROOT : PP^IP PU-COMMA ..." 0.0
+"NP^NP=MODIFIERNP" -> "NN" "NN" -2.8903718
+"@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... NR PU-PAREN" -> "@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... PU-DOU NR PU-PAREN" "PU-DOU" 0.0
+"NP^NP=MODIFIEDNP" -> "NN" "NN" -1.4586151
+"IP^IP" -> "ADVP^IP^ADVP" "@IP^IP : ADVP^IP^ADVP ..." -2.9957323
+"PP^VP-VPADJ" -> "P" "LCP^PP" 0.0
+"NP^NP=MODIFIEDNP" -> "NN" "@NP^NP=MODIFIEDNP : NN ..." -3.068053
+"PP^IP" -> "P" "NP^PP" -0.6931472
+"@VP^IP-CRD : PP^VP PU-COMMA IP^VP ..." -> "PU-COMMA" "@VP^IP-CRD : PP^VP PU-COMMA IP^VP PU-COMMA ..." -0.6931472
+"@VP^VP-COMP : ... NP^VP" -> "VV" "AS" 0.0
+"VP^IP-COMP" -> "VV" "VP^VP-COMP" -3.0910425
+"VP^IP-ADJT" -> "NP^VP-VPADJ" "@VP^IP-ADJT : NP^VP-VPADJ ..." -2.5649493
+"@NP^NP=MODIFIERNP : NN NN ..." -> "NN" "@NP^NP=MODIFIERNP : NN NN NN ..." -0.6931472
+"CP^IP" -> "ADVP^CP" "IP^CP" 0.0
+"@FRAG^ROOT : NN NR ..." -> "NT" "@FRAG^ROOT : NN NR NT ..." 0.0
+"@VP^IP-CRD : PP^VP PU-COMMA ..." -> "IP^VP" "@VP^IP-CRD : PP^VP PU-COMMA IP^VP ..." 0.0
+"@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... PU-DOU NR PU-PAREN" -> "NN" "NR" 0.0
+"NP^VP" -> "QP^NP" "NP^NP=MODIFIEDNP" -2.944439
+"VP^IP-COMP" -> "VV" "NP^VP" -0.78845733
+"VP^IP-COMP" -> "VC" "NP^VP" -1.9924302
+"VP^IP-COMP" -> "@VP^IP-COMP : ... NP^VP" "NP^VP" -2.3978953
+"@NP^DNP : NP^NP=MODIFIERNP=CONJ ..." -> "CC" "NP^NP=MODIFIEDNP=CONJ" 0.0
+"@NP^NP=MODIFIERNP : NN ..." -> "CC" "NN" -1.609438
+"NP^NP=MODIFIERNP" -> "NN" "@NP^NP=MODIFIERNP : NN ..." -1.2809339
+"VCD^VP" -> "VV" "VV" 0.0
+"@NP^VP : CP^NP ..." -> "QP^NP" "NP^NP=MODIFIEDNP" -0.6931472
+"NP^VP" -> "NN" "NN" -1.8458267
+"NP^DNP" -> "NN" "NN" -1.3862944
+"VP^VP-COMP" -> "@VP^VP-COMP : ... NP^VP" "NP^VP" -2.3513753
+"VP^VP-COMP" -> "VV" "NP^VP" -0.74193734
+"@VP^IP-CRD : ... VP^VP-COMP" -> "VP^VP-COMP" "PU-COMMA" -0.6931472
+"VP^VP-ADJT" -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" -1.2527629
+"VP^VP-COMP-VPADJ" -> "VC" "VP^VP-ADJT" -3.0910425
+"VP^VP-ADJT" -> "DVP^VP-VPADJ" "VP^VP-COMP-VPADJ" -1.9459101
+"@VP^IP-COMP : ... NP^VP" -> "VV" "AS" 0.0
+"@VP^IP-CRD : PU-QUOTE ... VP^VP-ADJT PU-QUOTE" -> "VP^VP-COMP" "PU-COMMA" 0.0
+"@VP^VP-ADJT : PP^VP-VPADJ ..." -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" 0.0
+"@VP^VP-CRD : ... VP^VP-COMP" -> "VP^VP-COMP" "PU-COMMA" -0.6931472
+"@VP^VP-CRD : ... VP^VP-COMP PU-COMMA VP^VP-ADJT PU-COMMA VP^VP-COMP" -> "VP^VP-COMP" "PU-COMMA" 0.0
+"NP^NP=MODIFIEDNP=CONJ" -> "QP^NP" "NP^NP=MODIFIEDNP" -1.3862944
+"NP^NP=MODIFIERNP=CONJ" -> "QP^NP" "NP^NP=MODIFIEDNP" -2.0794415
+"IP^ROOT" -> "PP^IP" "@IP^ROOT : PP^IP ..." -2.1972246
+"NP^LCP" -> "DP^NP" "NP^NP" -1.3862944
+"VP^VP-COMP-VPADJ" -> "@VP^VP-COMP-VPADJ : ... IP^VP=VVP" "IP^VP=VVP" -3.0910425
+"NP^VP" -> "DP^NP" "NP^NP" -2.944439
+"VP^VP-ADJT-VPADJ" -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" -0.91629076
+"VP^VP-ADJT-VPADJ" -> "SB" "VP^VP-COMP-VPADJ" -1.609438
+"NP^VP" -> "QP^NP" "@NP^VP : QP^NP ..." -2.944439
+"VP^VP-CRD-VPADJ" -> "@VP^VP-CRD-VPADJ : ... VP^VP-COMP" "VP^VP-COMP" 0.0
+"VP^VP-ADJT" -> "DVP^VP-VPADJ" "VP^VP-CRD-VPADJ" -1.9459101
+"VP^IP-ADJT" -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" -0.7731899
+"VP^IP-ADJT" -> "VP^VP-COMP-VPADJ" "VP^VP-COMP-VPADJ" -2.5649493
+"@VP^IP-ADJT : NP^VP-VPADJ ADVP^VP-VPADJ^ADVP ..." -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" 0.0
+"@VP^VP-CRD : ... PU-COMMA VP^VP-ADJT PU-COMMA VP^VP-COMP" -> "@VP^VP-CRD : ... VP^VP-COMP PU-COMMA VP^VP-ADJT PU-COMMA VP^VP-COMP" "VP^VP-COMP" 0.0
+"@VP^VP-CRD : ... PU-COMMA VP^VP-COMP" -> "@VP^VP-CRD : ... VP^VP-ADJT PU-COMMA VP^VP-COMP" "VP^VP-ADJT" 0.0
+"NP^NP" -> "NN" "NN" -0.6931472
+"VP^VP-COMP" -> "VC" "VP^VP-CRD" -3.0445225
+"VP^VP-CRD" -> "@VP^VP-CRD : ... VP^VP-COMP" "VP^VP-COMP" 0.0
+"VP^IP-CRD" -> "PU-QUOTE" "@VP^IP-CRD : PU-QUOTE ..." -2.3025851
+"VP^VP-ADJT" -> "PP^VP-VPADJ" "@VP^VP-ADJT : PP^VP-VPADJ ..." -1.9459101
+"NP^IP" -> "DP^NP" "NP^NP" -3.1354942
+"@VP^VP-CRD-VPADJ : ... VP^VP-COMP" -> "VP^VP-COMP" "CC" 0.0
+"VP^IP-COMP" -> "@VP^IP-COMP : ... IP^VP=VVP" "IP^VP=VVP" -3.0910425
+"@NP^NP=MODIFIERNP : NN ..." -> "NN" "@NP^NP=MODIFIERNP : NN NN ..." -0.91629076
+"VP^IP-COMP" -> "VV" "PP^VP" -3.0910425
+"@NP^IP : CP^NP NP^NP=MODIFIERNP ..." -> "QP^NP" "NP^NP=MODIFIEDNP" 0.0
+"@NP^NP=MODIFIEDNP : NN ..." -> "NN" "@NP^NP=MODIFIEDNP : NN NN ..." -0.6931472
+"@NP^NP=MODIFIEDNP : NN NN NN NN ..." -> "NN" "NN" 0.0
+"VP^VP-COMP" -> "@VP^VP-COMP : ... QP^VP" "QP^VP" -3.0445225
+"@VP^VP-ADJT : ADVP^VP-VPADJ^ADVP ..." -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" 0.0
+"@VP^IP-ADJT : PP^VP-VPADJ ..." -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" 0.0
+"VP^VP-COMP-VPADJ" -> "PU-QUOTE" "@VP^VP-COMP-VPADJ : PU-QUOTE ..." -3.0910425
+"@IP^ROOT : NP^IP ..." -> "PU-COMMA" "@IP^ROOT : NP^IP PU-COMMA ..." -0.6931472
+"@NP^NP=MODIFIERNP=CONJ : NP^NP=MODIFIERNP ..." -> "QP^NP" "NP^NP=MODIFIEDNP" 0.0
+"@VP^IP-ADJT : LCP^VP-VPADJ ..." -> "NP^VP-VPADJ" "VP^VP-COMP-VPADJ" 0.0
+"@NP^NP=MODIFIERNP : NN NN CC ..." -> "NN" "NN" 0.0
+"VP^VP-ADJT" -> "ADVP^VP-VPADJ^ADVP" "@VP^VP-ADJT : ADVP^VP-VPADJ^ADVP ..." -1.9459101
+"@NP^NP=MODIFIERNP=CONJ : NN NN NN ..." -> "NN" "NN" 0.0
+"@VP^VP-ADJT-VPADJ : ADVP^VP-VPADJ^ADVP ..." -> "ADVP^VP-VPADJ^ADVP" "VP^VP-COMP-VPADJ" 0.0
+"@VP^VP-COMP : ... QP^VP" -> "VV" "NP^VP" 0.0
+"@NP^NP=MODIFIERNP : NN NN NN ..." -> "NN" "NN" 0.0
+"@VP^IP-CRD : ... VP^VP-ADJT" -> "VP^VP-COMP" "CC" 0.0
+"@IP^IP : CP^IP PU-COMMA ADVP^IP^ADVP NP^IP ..." -> "PU-COMMA" "VP^IP-COMP" 0.0
+"NP^IP" -> "DP^NP" "@NP^IP : DP^NP ..." -3.1354942
+"@NP^VP : CP^NP ..." -> "QP^NP" "@NP^VP : CP^NP QP^NP ..." -0.6931472
+"FRAG^ROOT" -> "PU-PAREN" "@FRAG^ROOT : PU-PAREN ..." -0.6931472
+"@FRAG^ROOT : PU-PAREN ..." -> "VV" "PU-PAREN" 0.0
+"PP^IP" -> "P-IP" "IP^PP=VVP" -0.6931472
+"@IP^ROOT : ... PU-COMMA IP^IP PU-ENDSENT" -> "@IP^ROOT : ... IP^IP PU-COMMA IP^IP PU-ENDSENT" "IP^IP" 0.0
+"IP^IP" -> "PP^IP" "@IP^IP : PP^IP ..." -2.9957323
+"PP^VP" -> "P" "NP^PP" -1.0986123
+"DP^NP" -> "DT" "CLP^DP" -0.51082563
+"PP^VP" -> "P" "LCP^PP" -1.0986123
+"IP^IP" -> "CP^IP" "@IP^IP : CP^IP ..." -2.9957323
+"NP^NP=MODIFIERNP=CONJ" -> "NN" "@NP^NP=MODIFIERNP=CONJ : NN ..." -2.0794415
+"VP^VP-ADJT-VPADJ" -> "ADVP^VP-VPADJ^ADVP" "@VP^VP-ADJT-VPADJ : ADVP^VP-VPADJ^ADVP ..." -1.609438
+"VP^IP-ADJT" -> "PP^VP-VPADJ" "@VP^IP-ADJT : PP^VP-VPADJ ..." -2.5649493
+"@VP^IP-CRD : PP^VP PU-COMMA IP^VP ..." -> "PU-COMMA" "VP^VP-CRD" -0.6931472
+"@FRAG^ROOT : NN ..." -> "NR" "@FRAG^ROOT : NN NR ..." 0.0
+"@NP^NP=MODIFIEDNP : NP^NP=MODIFIERNP=CONJ ..." -> "PU-DOU" "NP^NP=MODIFIEDNP=CONJ" 0.0
+"@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU ..." -> "NP^NP=MODIFIERNP=CONJ" "@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ..." 0.0
+"@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ..." -> "NP^NP=MODIFIERNP=CONJ" "@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ..." 0.0
+"ROOT" -> "IP^ROOT" ".$$." -0.20067069
+"NP^NP=MODIFIERNP" -> "NR" "NR" -2.8903718
+"ROOT" -> "FRAG^ROOT" ".$$." -1.704748
+"QP^NP" -> "CD" "CLP^QP" -0.22314355
+"@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ..." -> "PU-DOU" "@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ..." 0.0
+"@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ..." -> "PU-DOU" "@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ..." 0.0
+"@NP^NP=MODIFIERNP : NN ..." -> "PU-DOU" "@NP^NP=MODIFIERNP : NN PU-DOU ..." -0.91629076
+"@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN ..." -> "PU-DOU" "@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU ..." 0.0
+"@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU NN ..." -> "PU-DOU" "@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU ..." 0.0
+"NP^NP=MODIFIERNP" -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -2.8903718
+"@IP^IP : CP^IP PU-COMMA ADVP^IP^ADVP ..." -> "NP^IP" "@IP^IP : CP^IP PU-COMMA ADVP^IP^ADVP NP^IP ..." 0.0
+"NP^IP" -> "NR" "NR" -3.1354942
+"VP^VP-COMP-VPADJ" -> "@VP^VP-COMP-VPADJ : ... NP^VP" "NP^VP" -3.0910425
+"@NP^VP : NP^NP=MODIFIERNP=CONJ ..." -> "PU-DOU" "@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU ..." 0.0
+"VP^VP-COMP-VPADJ" -> "VE" "NP^VP" -3.0910425
+"VP^IP-CRD" -> "@VP^IP-CRD : ... VP^VP-ADJT" "VP^VP-ADJT" -2.3025851
+"IP^ROOT" -> "NP^IP" "VP^IP-COMP" -2.1972246
+"NP^IP" -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -2.036882
+"VP^IP-CRD" -> "@VP^IP-CRD : ... VP^VP-COMP" "VP^VP-COMP" -0.51082563
+"LCP^VP-VPADJ" -> "NP^LCP" "LC" 0.0
+"CP^NP" -> "IP^CP=DEC" "DEC" -0.087011375
+"@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ..." -> "PU-DOU" "@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ..." 0.0
+"NP^IP" -> "ADJP^NP" "NP^NP=MODIFIEDNP" -2.442347
+"NP^IP" -> "CP^NP" "NP^NP=MODIFIEDNP" -3.1354942
+"@IP^ROOT : NP^IP ..." -> "VP^IP-CRD" "PU-ENDSENT" -0.6931472
+"@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN ..." -> "PU-DOU" "@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU NN PU-DOU NN PU-DOU ..." 0.0
+"@IP^ROOT : PP^IP PU-COMMA ..." -> "NP^IP" "@IP^ROOT : PP^IP PU-COMMA NP^IP ..." 0.0
+"IP^IP" -> "NP^IP" "VP^IP-ADJT" -2.3025851
+"NP^VP" -> "CP^NP" "@NP^VP : CP^NP ..." -2.944439
+"@VP^VP-COMP-VPADJ : ... NP^VP" -> "VCD^VP" "AS" 0.0
+"PP^VP" -> "ADVP^PP^ADVP" "PP^PP" -1.0986123
+"@NP^VP : QP^NP ..." -> "CP^NP" "@NP^VP : QP^NP CP^NP ..." -0.6931472
+"@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ..." -> "NP^NP=MODIFIERNP=CONJ" "@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ ..." 0.0
+"@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... PU-PAREN" -> "@FRAG^ROOT : NN NR NT NT NN PU-PAREN ... NR PU-PAREN" "NR" 0.0
+"@VP^IP-CRD : ... VP^VP-COMP" -> "@VP^IP-CRD : ... CC VP^VP-COMP" "CC" -1.7917595
+"NP^VP" -> "DNP^NP" "@NP^VP : DNP^NP ..." -2.944439
+"IP^ROOT" -> "NP^IP" "@IP^ROOT : NP^IP ..." -1.5040774
+"IP^ROOT" -> "@IP^ROOT : ... PU-ENDSENT" "PU-ENDSENT" -0.5877867
+"@NP^NP=MODIFIERNP : NN PU-DOU NN ..." -> "PU-DOU" "@NP^NP=MODIFIERNP : NN PU-DOU NN PU-DOU ..." -0.6931472
+"NP^NP=CONJ" -> "NP^NP=MODIFIERNP" "@NP^NP=CONJ : NP^NP=MODIFIERNP ..." 0.0
+"NP^VP" -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -2.2512918
+"NP^VP" -> "CP^NP" "NP^NP=MODIFIEDNP" -2.5389738
+"NP^VP" -> "DNP^NP" "NP^NP=MODIFIEDNP" -3.637586
+"NP^VP" -> "ADJP^NP" "NP^NP=MODIFIEDNP" -2.5389738
+"@NP^NP=MODIFIERNP : NN PU-DOU NN ..." -> "PU-DOU" "NN" -0.6931472
+"IP^CP=DEC" -> "NP^IP" "VP^IP-COMP" -1.704748
+"VP^IP-ADJT" -> "VP^VP-ADJT-VPADJ" "VP^VP-ADJT-VPADJ" -1.8718022
+"NP^NP=MODIFIERNP" -> "NR" "ETC" -2.8903718
+"IP^VP=VVP" -> "NP^IP" "VP^IP-ADJT" -1.609438
+"@NP^VP : DNP^NP ..." -> "ADJP^NP" "NP^NP=MODIFIEDNP" 0.0
+"VP^VP-COMP" -> "VE" "NP^VP" -3.0445225
+"NP^DNP" -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -1.3862944
+"@VP^IP-CRD : ... VP^VP-COMP" -> "VP^VP-ADJT" "PU-COMMA" -1.0986123
+"VP^VP-ADJT" -> "LCP^VP-VPADJ" "VP^VP-COMP-VPADJ" -1.9459101
+"IP^VP=VVP" -> "IP^IP" "IP^IP" -1.609438
+"DVP^VP-VPADJ" -> "VP^DVP-COMP" "DEV" -0.6931472
+"DVP^VP-VPADJ" -> "ADVP^DVP^ADVP" "DEV" -0.6931472
+"@IP^ROOT : PP^IP PU-COMMA NP^IP ..." -> "VP^IP-CRD" "PU-ENDSENT" 0.0
+"IP^IP" -> "NP^IP" "VP^IP-COMP" -1.2039728
+"@NP^VP : QP^NP ..." -> "CP^NP" "NP^NP=MODIFIEDNP" -0.6931472
+"LCP^PP" -> "IP^LCP" "LC" -1.0986123
+"@VP^VP-CRD : ... VP^VP-COMP" -> "@VP^VP-CRD : ... PU-COMMA VP^VP-COMP" "PU-COMMA" -0.6931472
+"LCP^PP" -> "NP^LCP" "LC" -0.4054651
+"@NP^VP : QP^NP CP^NP ..." -> "ADJP^NP" "NP^NP=MODIFIEDNP" 0.0
+"@VP^VP-CRD : ... VP^VP-ADJT PU-COMMA VP^VP-COMP" -> "@VP^VP-CRD : ... PU-COMMA VP^VP-ADJT PU-COMMA VP^VP-COMP" "PU-COMMA" 0.0
+"NP^DNP" -> "NP^NP=MODIFIERNP=CONJ" "@NP^DNP : NP^NP=MODIFIERNP=CONJ ..." -0.6931472
+"@NP^VP : NP^NP=MODIFIERNP ..." -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -0.6931472
+"@IP^IP : ADVP^IP^ADVP ..." -> "NP^IP" "VP^IP-COMP" 0.0
+"@NP^VP : NP^NP=MODIFIERNP ..." -> "ADJP^NP" "NP^NP=MODIFIEDNP" -0.6931472
+"@VP^VP-COMP : ... IP^VP=VVP" -> "VV-IP" "NP^VP" 0.0
+"NP^NP=MODIFIEDNP" -> "NP^NP=MODIFIERNP=CONJ" "@NP^NP=MODIFIEDNP : NP^NP=MODIFIERNP=CONJ ..." -3.7612002
+"NP^NP=MODIFIEDNP=CONJ" -> "ADJP^NP" "NP^NP=MODIFIEDNP" -1.3862944
+"NP^NP=MODIFIEDNP=CONJ" -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -1.3862944
+"NP^NP=MODIFIERNP=CONJ" -> "ADJP^NP" "NP^NP=MODIFIEDNP" -1.3862944
+"NP^NP=MODIFIERNP=CONJ" -> "CP^NP" "NP^NP=MODIFIEDNP" -2.0794415
+"NP^NP=MODIFIERNP=CONJ" -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -2.0794415
+"NP^VP-VPADJ" -> "NP^NP=MODIFIERNP" "NP^NP=MODIFIEDNP" -0.6931472
+"IP^IP" -> "NP^IP" "VP^IP-CRD" -2.3025851
+"@IP^ROOT : ... IP^IP PU-ENDSENT" -> "IP^IP" "PU-COMMA" -0.51082563
+"@IP^ROOT : ... IP^IP PU-ENDSENT" -> "@IP^ROOT : ... PU-COMMA IP^IP PU-ENDSENT" "PU-COMMA" -0.91629076
+"VP^VP-COMP" -> "@VP^VP-COMP : ... IP^VP=VVP" "IP^VP=VVP" -3.0445225
+"VP^VP-COMP" -> "VV-IP" "IP^VP=VVP" -2.3513753
+"@ADVP^DVP^ADVP : ... AD~DVP" -> "AD~DVP" "PU-DOU" 0.0
+"NP^VP" -> "NP^NP=MODIFIERNP" "@NP^VP : NP^NP=MODIFIERNP ..." -2.944439
+"VP^IP-ADJT" -> "DP^VP-VPADJ" "VP^VP-COMP-VPADJ" -2.5649493
+"@VP^IP-CRD : PU-QUOTE ... PU-QUOTE" -> "@VP^IP-CRD : PU-QUOTE ... VP^VP-ADJT PU-QUOTE" "VP^VP-ADJT" 0.0
+"NP^IP" -> "CP^NP" "@NP^IP : CP^NP ..." -3.1354942
+"DNP^NP" -> "NP^DNP" "DEG" 0.0
+"@VP^IP-CRD : ... CC VP^VP-COMP" -> "VP^VP-ADJT" "PU-COMMA" 0.0
+"@VP^IP-CRD : PP^VP PU-COMMA IP^VP PU-COMMA ..." -> "ADVP^VP^ADVP" "VP^VP-COMP" 0.0
+"NP^VP" -> "NP^NP=MODIFIERNP=CONJ" "@NP^VP : NP^NP=MODIFIERNP=CONJ ..." -3.637586
+"@IP^IP : PP^IP PU-COMMA ..." -> "NP^IP" "VP^IP-CRD" 0.0
+"@NP^VP : CP^NP QP^NP ..." -> "ADJP^NP" "NP^NP=MODIFIEDNP" 0.0
+"VP^IP-CRD" -> "PP^VP" "@VP^IP-CRD : PP^VP ..." -1.609438
+"IP^VP" -> "IP^IP" "VP^IP-COMP" -1.3862944
+"IP^VP" -> "NP^IP" "VP^IP-COMP" -0.6931472
+"@IP^IP : ... IP^IP" -> "IP^IP" "PU-COMMA" 0.0
+"@NP^VP : NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU NP^NP=MODIFIERNP=CONJ PU-DOU ..." -> "NP^NP=CONJ" "ETC" 0.0
+"@IP^ROOT : NP^IP PU-COMMA ..." -> "VP^IP-CRD" "PU-ENDSENT" 0.0
+"@VP^VP-COMP-VPADJ : ... IP^VP=VVP" -> "VV-IP" "AS" 0.0
+"NP^IP" -> "NP^NP=MODIFIERNP=CONJ" "@NP^IP : NP^NP=MODIFIERNP=CONJ ..." -3.1354942
+"@NP^PP : DNP^NP ..." -> "ADJP^NP" "NP^NP=MODIFIEDNP" 0.0
+"QP^VP" -> "CD" "CLP^QP" 0.0
+"VP^VP-COMP-VPADJ" -> "VE" "IP^VP" -2.3978953
+"@NP^NP=CONJ : NP^NP=MODIFIERNP ..." -> "ADJP^NP" "NP^NP=MODIFIEDNP" 0.0
+"@NP^IP : DP^NP ..." -> "CP^NP" "NP^NP=MODIFIEDNP" 0.0
+"@IP^ROOT : ... IP^IP PU-COMMA IP^IP PU-ENDSENT" -> "IP^IP" "PU-COMMA" 0.0
+"NP^PP" -> "DNP^NP" "@NP^PP : DNP^NP ..." -0.6931472
+"VP^IP-ADJT" -> "LCP^VP-VPADJ" "@VP^IP-ADJT : LCP^VP-VPADJ ..." -2.5649493
+"@NP^IP : NP^NP=MODIFIERNP=CONJ ..." -> "PU-DOU" "NP^NP=MODIFIEDNP=CONJ" 0.0
+"@VP^VP-COMP-VPADJ : PU-QUOTE ..." -> "VA" "PU-QUOTE" 0.0
+"@VP^IP-COMP : ... IP^VP=VVP" -> "VV-IP" "PU-COMMA" 0.0
+"IP^CP" -> "NP^IP" "IP^IP" -0.6931472
+"NP^NP=MODIFIERNP=CONJ" -> "NP^NP=MODIFIERNP" "@NP^NP=MODIFIERNP=CONJ : NP^NP=MODIFIERNP ..." -2.0794415
+"@NP^IP : CP^NP ..." -> "NP^NP=MODIFIERNP" "@NP^IP : CP^NP NP^NP=MODIFIERNP ..." 0.0
+
+BEGIN DEPENDENCY_GRAMMAR
+"浦东/NR" -> "上海/NR" right 0 2.0
+"等/P" -> "以后/LC" left 0 1.0
+"记者/NN" -> "上海/NR" right 1 1.0
+"记者/NN" -> "张持坚/NR" left 1 1.0
+"的/DEC" -> "干/VV" right 0 1.0
+"的/DEC" -> "明确/VA" right 0 1.0
+"进行/VV" -> "队伍/NN" right 0 1.0
+"进行/NN" -> "的/DEG" right 1 1.0
+"振兴/VV" -> "上海/NR" left 0 1.0
+"中心/NN" -> "采购/NN" right 1 1.0
+"中心/NN" -> "家/M" right 1 1.0
+"出现/VV" -> "大量/AD~VP" right 0 1.0
+"是/VC" -> "建筑/NN" right 0 1.0
+"是/VC" -> "因此/AD~IP" right 1 1.0
+"做法/NN" -> "这/DT" right 1 1.0
+"教训/NN" -> "的/DEG" right 1 1.0
+"活动/NN" -> "社会/NN" right 0 1.0
+"诞生/VV" -> "初/LC" right 1 1.0
+"规范/VV" -> "行为/NN" left 0 1.0
+"开始/VV" -> "规范/VA" left 0 1.0
+"公司/NN" -> "家/M" right 1 1.0
+"公司/NN" -> "建筑/NN" right 0 2.0
+"工地/NN" -> "建筑/NN" right 0 1.0
+"热土/NN" -> "这/DT" right 0 1.0
+"这/DT" -> "片/M" left 0 1.0
+"行为/NN" -> "建筑/NN" right 0 1.0
+"规定/NN" -> "的/DEG" right 1 1.0
+"出台/VV" -> "为/P-IP" right 1 1.0
+"办法/NN" -> "招投标/NN" right 1 1.0
+"整治/VV" -> "建筑/NN" left 0 1.0
+"队伍/NN" -> "专门/JJ" right 0 1.0
+"认为/VV-IP" -> "他们/PN" right 0 1.0
+"评/NN" -> "的/DEG" right 1 1.0
+"得到/VV" -> "保障/NN" left 0 1.0
+"开发/VV" -> "浦东/NR" left 0 1.0
+"开发/NN" -> "浦东/NR" right 0 2.0
+".$./.$$." -> "受到/VV" right 0 1.0
+".$./.$$." -> "完/VV" right 0 1.0
+"建设/NN" -> "与/CC" right 1 1.0
+"建设/NN" -> "浦东/NR" right 1 1.0
+"建设/VV" -> "中心/NN" left 0 1.0
+"的/DEC" -> "开发/VV" right 0 1.0
+"颁布/VV" -> "浦东/NR" right 1 1.0
+"文件/NN" -> "系列/M" right 1 1.0
+"开放/NN" -> "浦东/NR" right 1 1.0
+"中心/NN" -> "药品/NN" right 1 1.0
+"工程/NN" -> "项/M" right 1 1.0
+"工程/NN" -> "跨世纪/JJ" right 0 1.0
+"采取/VV" -> "浦东/NR" right 1 1.0
+"制定/VV" -> "和/CC" left 0 1.0
+"国家/NN" -> "发达/JJ" right 0 1.0
+"特区/NN" -> "和/CC" right 1 1.0
+"活动/NN" -> "项/M" right 1 1.0
+"新区/NN" -> "浦东/NR" right 0 3.0
+"成交/VV" -> "中心/NN" right 1 1.0
+"成交/VV" -> "元/M" left 1 1.0
+"成交/VV" -> "药品/NN" left 0 1.0
+"发现/VV" -> "回扣/NN" left 0 1.0
+"上海市/NR" -> "和/CC" right 0 1.0
+"规定/NN" -> "暂行/JJ" right 0 1.0
+"管理/NN" -> "施工/NN" right 1 1.0
+"办法/NN" -> "暂行/JJ" right 0 1.0
+"办法/NN" -> "施工/NN" right 1 1.0
+"管理/NN" -> "环境/NN" right 0 1.0
+"社会/NN" -> "和/CC" right 0 1.0
+"受到/VV" -> "粗/VA" right 1 1.0
+".$./.$$." -> "采取/VV" right 0 1.0
+"的/DEG" -> "投资者/NN" right 0 1.0
+"颁布/VV" -> "文件/NN" left 1 1.0
+"进行/VV" -> "检查/NN" left 0 1.0
+"是/VC" -> "有待/VV-IP" left 1 1.0
+"推出/VV" -> "文件/NN" left 0 1.0
+"初/LC" -> "去年/NT" right 0 1.0
+"家/M" -> "第一/OD" right 0 1.0
+"规范/VA" -> "比较/AD~VP" right 0 1.0
+"活动/NN" -> "主要/JJ" right 1 1.0
+"回扣/NN" -> "例/M" right 0 1.0
+"这/DT" -> "种/M" left 0 1.0
+"出台/VV" -> "文件/NN" left 1 1.0
+"包括/VV" -> "办法/NN" left 0 1.0
+"办法/NN" -> "办法/NN" left 0 2.0
+"有/VE" -> "都/AD~VP" right 0 1.0
+"送上/VV" -> "文件/NN" left 0 1.0
+"粗/VA" -> "比较/AD~VP" right 1 1.0
+"粗/VA" -> "文件/NN" right 1 1.0
+"建设/NN" -> "开发/NN" right 1 1.0
+"的/DEG" -> "开发/NN" right 0 1.0
+"的/DEC" -> "紧跟/VV" right 0 1.0
+"文件/NN" -> "法规性/NN" right 0 4.0
+"开放/NN" -> "开发/NN" right 0 1.0
+"中心/NN" -> "服务/NN" right 0 1.0
+"是/VC" -> "工程/NN" left 0 1.0
+"是/VC" -> "活动/NN" left 0 1.0
+"是/VC" -> "还/AD~VP" right 1 1.0
+"是/VC" -> "有些/PN" right 1 1.0
+"遇到/VV" -> "过/AS" left 0 1.0
+"遇到/VV" -> "以前/NT" right 1 1.0
+"遇到/VV" -> "不/AD~VP" right 1 1.0
+"采取/VV" -> "不/AD~VP" right 1 1.0
+"采取/VV" -> "借鉴/VV" left 1 1.0
+"特区/NN" -> "国家/NN" right 1 1.0
+"使/VV-IP" -> "活动/NN" left 0 1.0
+"现象/NN" -> "无序/JJ" right 0 1.0
+"上海市/NR" -> "国家/NN" right 1 1.0
+"出台/VV" -> "根据/P" right 1 1.0
+"实际/NN" -> "开发/NN" right 0 1.0
+"在/P" -> "中/LC" left 0 1.0
+"办法/NN" -> "管理/NN" right 0 1.0
+"办法/NN" -> "工程/NN" right 1 1.0
+"办法/NN" -> "管理/NN" right 1 1.0
+"有/VE" -> "得到/VV" left 1 1.0
+"检查/NN" -> "监督/NN" right 0 1.0
+"粗/VA" -> "有些/PN" right 1 1.0
+"紧跟/VV" -> "活动/NN" left 0 1.0
+"同步/VV" -> "建设/NN" right 0 1.0
+"的/DEG" -> "特区/NN" right 0 1.0
+"的/DEC" -> "涉及/VV" right 0 1.0
+"的/DEC" -> "规范/VV" right 0 1.0
+"文教/NN" -> "建设/NN" right 1 1.0
+"文件/NN" -> "的/DEC" right 0 1.0
+"文件/NN" -> "的/DEC" right 1 2.0
+"中心/NN" -> "的/DEC" right 1 1.0
+"工程/NN" -> "的/DEC" right 1 1.0
+"是/VC" -> "的/DEC" right 0 1.0
+"问题/NN" -> "的/DEC" right 1 1.0
+"干/VV" -> "时间/NN" left 0 1.0
+"干/VV" -> "”/PU-QUOTE" left 1 1.0
+"做法/NN" -> "的/DEC" right 0 2.0
+"借鉴/VV" -> "聘请/VV" left 1 1.0
+"特区/NN" -> "深圳/NR" right 0 1.0
+"活动/NN" -> "的/DEC" right 1 1.0
+"成交/VV" -> "因为/P-IP" right 1 1.0
+"规定/NN" -> "工作/NN" right 1 1.0
+"出台/VV" -> "管委会/NN" right 1 1.0
+"规定/NN" -> "的/DEC" right 0 1.0
+"市场/NN" -> "建设/NN" right 0 1.0
+"管理/NN" -> "建设/NN" right 1 1.0
+"办法/NN" -> "整治/VV" right 1 1.0
+"有/VE" -> "环节/NN" right 1 1.0
+"有/VE" -> "进行/VV" left 0 1.0
+"意见/NN" -> "建设/NN" right 0 1.0
+"为/P-IP" -> "规范/VV" left 0 1.0
+"受到/VV" -> "评/NN" left 1 1.0
+"粗/VA" -> "”/PU-QUOTE" left 0 1.0
+"评/NN" -> "好/JJ" right 0 1.0
+".$./.$$." -> "同步/VV" right 0 1.0
+"建设/NN" -> "法制/NN" right 0 1.0
+"出现/VV" -> "现象/NN" left 0 1.0
+"是/VC" -> "有/VE" left 1 1.0
+"以后/LC" -> "积累/VV" right 0 1.0
+"轨道/NN" -> "法制/NN" right 0 1.0
+"工地/NN" -> "个/M" right 1 1.0
+"工作/NN" -> "拆迁/NN" right 0 1.0
+"每/DT" -> "个/M" left 0 1.0
+"做到/VV-IP" -> "有/VE" left 1 1.0
+"进/VV" -> "有/VE" left 1 1.0
+"紧跟/VV" -> "法制/NN" right 0 1.0
+"到/VV" -> "有/VE" left 1 1.0
+"的/DEC" -> "出现/VV" right 0 1.0
+"颁布/VV" -> "确保/VV" left 1 1.0
+"颁布/VV" -> "实行/VV" left 0 1.0
+"进行/NN" -> "有序/JJ" right 0 1.0
+"确保/VV" -> "进行/NN" left 1 1.0
+"振兴/VV" -> "建设/VV" left 1 1.0
+"出现/VV" -> "纳入/VV" left 0 1.0
+"积累/VV" -> "经验/NN" left 1 1.0
+"地/DEV" -> "积极/AD~DVP" right 0 1.0
+"制定/VV" -> "地/DEV" right 0 1.0
+"因为/P-IP" -> "开始/VV" left 0 1.0
+"教训/NN" -> "经验/NN" right 0 1.0
+"使/VV-IP" -> "出现/VV" left 1 1.0
+"防止/VV-IP" -> "出现/VV" left 0 1.0
+"做到/VV-IP" -> "基本/AD~VP" right 0 1.0
+"粗/VA" -> "尽管/CS" right 1 1.0
+".$./.$$." -> "颁布/VV" right 0 1.0
+"的/DEV" -> "简单/VA" right 0 1.0
+"记者/NN" -> "）/PU-PAREN" left 1 1.0
+"的/DEG" -> "上海市/NR" right 0 1.0
+"来/LC" -> "近年/NT" right 0 1.0
+"文教/NN" -> "等/ETC" left 0 1.0
+"项/M" -> "一/CD" right 0 2.0
+"采取/VV" -> "的/DEV" right 0 1.0
+"积极/AD~DVP" -> "及时/AD~DVP" left 1 1.0
+"段/M" -> "一/CD" right 0 1.0
+"借鉴/VV" -> "教训/NN" left 0 1.0
+"深圳/NR" -> "等/ETC" left 0 1.0
+"规范/VA" -> "就/AD~VP" right 1 1.0
+"纳入/VV" -> "轨道/NN" left 0 1.0
+"纳入/VV" -> "就/AD~VP" right 1 1.0
+"元/M" -> "一亿多/CD" right 0 1.0
+"例/M" -> "一/CD" right 0 1.0
+"工地/NN" -> "公司/NN" right 1 1.0
+"系列/M" -> "一/CD" right 0 1.0
+"在/P" -> "上/LC" left 0 1.0
+"办法/NN" -> "等/ETC" left 0 1.0
+"进/VV" -> "公司/NN" right 0 1.0
+"完/VV" -> "）/PU-PAREN" left 0 1.0
+".$./.$$." -> "出台/VV" right 0 1.0
+".$./.$$." -> "是/VC" right 0 2.0
+"记者/NN" -> "、/PU-DOU" left 1 1.0
+"文教/NN" -> "、/PU-DOU" right 1 4.0
+"文教/NN" -> "贸易/NN" right 1 1.0
+"文教/NN" -> "、/PU-DOU" right 0 1.0
+"金融/NN" -> "、/PU-DOU" right 0 1.0
+"金融/NN" -> "、/PU-DOU" right 1 1.0
+"金融/NN" -> "贸易/NN" right 1 1.0
+"是/VC" -> "开放/NN" right 0 1.0
+"是/VC" -> "是/VC" left 1 1.0
+"问题/NN" -> "、/PU-DOU" right 1 1.0
+"采取/VV" -> "是/VC" right 1 1.0
+"积极/AD~DVP" -> "、/PU-DOU" left 0 1.0
+"制定/VV" -> "等/P" right 1 1.0
+"制定/VV" -> "新区/NN" right 0 1.0
+"借鉴/VV" -> "是/VC" right 0 1.0
+"诞生/VV" -> "新区/NN" right 0 1.0
+"建筑/NN" -> "违章/JJ" right 0 1.0
+"遍布/VV" -> "工地/NN" right 0 1.0
+"工地/NN" -> "、/PU-DOU" right 1 1.0
+"管委会/NN" -> "新区/NN" right 0 1.0
+"出台/VV" -> "做到/VV-IP" left 1 1.0
+"管理/NN" -> "工地/NN" right 1 1.0
+"办法/NN" -> "实施/NN" right 0 1.0
+"办法/NN" -> "、/PU-DOU" right 1 4.0
+"环节/NN" -> "每/DT" right 0 1.0
+"完善/VV" -> "逐步/AD~VP" right 0 1.0
+"粗/VA" -> "是/VC" left 1 1.0
+"到/VV" -> "新区/NN" left 0 1.0
+".$./.$$." -> "成交/VV" right 0 1.0
+".$./.$$." -> "进/VV" right 0 1.0
+"记者/NN" -> "新华社/NN" right 1 1.0
+"的/DEC" -> "诞生/VV" right 0 1.0
+"的/DEC" -> "制定/VV" right 0 1.0
+"颁布/VV" -> "。/PU-ENDSENT" left 1 1.0
+"文教/NN" -> "经济/NN" right 1 1.0
+"对/P" -> "此/PN" left 0 1.0
+"金融/NN" -> "经济/NN" right 1 1.0
+"是/VC" -> "规定/NN" left 0 1.0
+"是/VC" -> "。/PU-ENDSENT" left 1 2.0
+"干/VV" -> "制定/VV" left 1 1.0
+"采取/VV" -> "。/PU-ENDSENT" left 1 1.0
+"时间/NN" -> "段/M" right 0 1.0
+"借鉴/VV" -> "制定/VV" left 1 1.0
+"学者/NN" -> "国内外/NN" right 1 1.0
+"学者/NN" -> "有关/JJ" right 1 1.0
+"家/M" -> "数百/CD" right 0 1.0
+"活动/NN" -> "经济/NN" right 0 2.0
+"纳入/VV" -> "被/SB" right 0 1.0
+"规范/VV" -> "防止/VV-IP" left 1 1.0
+"成交/VV" -> "。/PU-ENDSENT" left 1 1.0
+"根据/P" -> "规定/NN" left 0 1.0
+"出台/VV" -> "及时/AD~VP" right 0 1.0
+"规定/NN" -> "有关/JJ" right 0 1.0
+"出台/VV" -> "。/PU-ENDSENT" left 1 1.0
+"办法/NN" -> "规定/NN" right 1 1.0
+"有/VE" -> "遍布/VV" left 0 1.0
+"有/VE" -> "规定/NN" left 0 1.0
+"进/VV" -> "。/PU-ENDSENT" left 1 1.0
+"部门/NN" -> "有关/JJ" right 0 1.0
+"送上/VV" -> "先/AD~VP" right 0 1.0
+"受到/VV" -> "。/PU-ENDSENT" left 1 1.0
+"社会/NN" -> "经济/NN" right 1 1.0
+"投资者/NN" -> "国内外/NN" right 0 1.0
+"记者/NN" -> "（/PU-PAREN" right 0 1.0
+"记者/NN" -> "电/NN" right 1 1.0
+"的/DEC" -> "遇到/VV" right 0 1.0
+"颁布/VV" -> "，/PU-COMMA" left 1 1.0
+"文教/NN" -> "科技/NN" right 1 1.0
+"振兴/VV" -> "，/PU-COMMA" left 1 1.0
+"是/VC" -> "，/PU-COMMA" left 1 3.0
+"干/VV" -> "，/PU-COMMA" left 1 1.0
+"采取/VV" -> "，/PU-COMMA" right 1 1.0
+"采取/VV" -> "，/PU-COMMA" left 1 1.0
+"条例/NN" -> "法规/NN" right 0 1.0
+"借鉴/VV" -> "，/PU-COMMA" left 1 3.0
+"聘请/VV" -> "学者/NN" left 0 1.0
+"规范/VV" -> "，/PU-COMMA" left 1 1.0
+"成交/VV" -> "，/PU-COMMA" right 1 2.0
+"成交/VV" -> "至今/VV" right 1 1.0
+"成交/VV" -> "，/PU-COMMA" left 1 1.0
+"成交/VV" -> "，/PU-COMMA" right 0 1.0
+"出台/VV" -> "，/PU-COMMA" right 1 3.0
+"出台/VV" -> "，/PU-COMMA" left 1 2.0
+"规定/NN" -> "若干/CD" right 0 1.0
+"出台/VV" -> "结合/VV" right 1 1.0
+"有/VE" -> "，/PU-COMMA" left 1 2.0
+"有/VE" -> "章法/NN" left 0 1.0
+"配套/NN" -> "设施/NN" right 1 1.0
+"进/VV" -> "，/PU-COMMA" left 1 2.0
+"进/VV" -> "区/NN" left 0 1.0
+"认为/VV-IP" -> "，/PU-COMMA" left 0 1.0
+"粗/VA" -> "，/PU-COMMA" left 1 1.0
+"受到/VV" -> "，/PU-COMMA" left 1 1.0
+"受到/VV" -> "，/PU-COMMA" right 1 1.0
+"受到/VV" -> "，/PU-COMMA" right 0 1.0
+"到/VV" -> "投资/VV" left 1 1.0
+"完/VV" -> "（/PU-PAREN" right 0 1.0
+"颁布/VV" -> "来/LC" right 0 1.0
+"文教/NN" -> "规划/NN" right 1 1.0
+"中心/NN" -> "中国/NR" right 1 1.0
+"问题/NN" -> "新/JJ" right 0 1.0
+"情况/NN" -> "新/JJ" right 0 1.0
+"干/VV" -> "“/PU-QUOTE" right 0 1.0
+"采取/VV" -> "对/P" right 1 1.0
+"借鉴/VV" -> "使/VV-IP" left 1 1.0
+"学者/NN" -> "专家/NN" right 0 1.0
+"至今/VV" -> "运转/VV" right 0 1.0
+"个/M" -> "四千余/CD" right 0 1.0
+"结合/VV" -> "实际/NN" left 0 1.0
+"有/VE" -> "然后/AD~VP" right 0 1.0
+"有/VE" -> "办事/NN" right 0 1.0
+"配套/NN" -> "通信/NN" right 1 1.0
+"中/LC" -> "实践/NN" right 0 1.0
+"认为/VV-IP" -> "到/VV" left 1 1.0
+"粗/VA" -> "“/PU-QUOTE" right 0 1.0
+".$./.$$." -> "记者/NN" right 0 1.0
+"记者/NN" -> "二月/NT" right 1 1.0
+"文件/NN" -> "件/M" right 1 1.0
+"件/M" -> "七十一/CD" right 0 1.0
+"是/VC" -> "问题/NN" left 0 1.0
+"是/VC" -> "只/AD~VP" right 0 1.0
+"遇到/VV" -> "曾/AD~VP" right 0 1.0
+"制定/VV" -> "推出/VV" left 1 1.0
+"因为/P-IP" -> "正/AD~PP" right 0 1.0
+"规范/VV" -> "市场/NN" left 0 1.0
+"出台/VV" -> "包括/VV" left 1 1.0
+"具体/VA" -> "又/AD~VP" right 0 1.0
+"配套/NN" -> "管线/NN" right 0 1.0
+"受到/VV" -> "认为/VV-IP" left 1 1.0
+"讲/VV" -> "规矩/NN" left 0 1.0
+"得到/VV" -> "能/VV" right 0 1.0
+"领域/NN" -> "文教/NN" right 0 1.0
+"文件/NN" -> "这些/DT" right 1 1.0
+"问题/NN" -> "情况/NN" right 1 1.0
+"采取/VV" -> "而/CC" left 1 1.0
+"制定/VV" -> "条例/NN" left 0 1.0
+"制定/VV" -> "再/AD~VP" right 0 1.0
+"活动/NN" -> "这些/DT" right 1 1.0
+"成交/VV" -> "发现/VV" left 1 1.0
+"明确/VA" -> "而/CC" left 0 1.0
+"有/VE" -> "这些/DT" right 0 1.0
+"进/VV" -> "送上/VV" left 1 1.0
+"送上/VV" -> "部门/NN" right 1 1.0
+"受到/VV" -> "但/AD~IP" right 1 1.0
+"记者/NN" -> "谢金虎/NR" left 0 1.0
+"的/DEC" -> "振兴/VV" right 0 1.0
+"中心/NN" -> "机构/NN" right 1 1.0
+"中心/NN" -> "金融/NN" right 0 1.0
+"发现/VV" -> "没有/VV" right 0 1.0
+"这些/DT" -> "年/M" left 0 1.0
+"遍布/VV" -> "在/P" left 0 1.0
+"明确/VA" -> "具体/VA" left 1 1.0
+"办法/NN" -> "意见/NN" right 1 1.0
+"配套/NN" -> "及/CC" right 1 1.0
+"完善/VV" -> "在/P" right 1 1.0
+"有待/VV-IP" -> "完善/VV" left 0 1.0
+"记者/NN" -> "十日/NT" right 1 1.0
+"涉及/VV" -> "领域/NN" left 0 1.0
+"颁布/VV" -> "了/AS" left 1 1.0
+"确保/VV" -> "了/AS" left 0 1.0
+"中心/NN" -> "现代化/NN" right 1 1.0
+"中心/NN" -> "医疗/NN" right 1 1.0
+"出现/VV" -> "一/AD~VP" right 0 1.0
+"采取/VV" -> "做法/NN" left 0 1.0
+"积累/VV" -> "了/AS" left 0 1.0
+"开始/VV" -> "一/AD~VP" right 0 1.0
+"上/LC" -> "热土/NN" right 0 1.0
+"出台/VV" -> "了/AS" left 0 1.0
+"包括/VV" -> "其中/NN" right 0 1.0
+"有/VE" -> "讲/VV" left 1 1.0
+"做到/VV-IP" -> "了/AS" left 0 1.0
+"意见/NN" -> "配套/NN" right 1 1.0
+"受到/VV" -> "做法/NN" right 1 1.0
+"受到/VV" -> "了/AS" left 0 1.0
+"得到/VV" -> "利益/NN" right 1 1.0
+BEGIN_STOP
+"尽管/CS" -> "STOP/STOP" right 0 1.0
+"尽管/CS" -> ".*./.*." right 0 1.0
+"尽管/CS" -> "STOP/STOP" left 0 1.0
+"尽管/CS" -> ".*./.*." left 0 1.0
+"得到/VV" -> ".*./.*." left 0 1.0
+"得到/VV" -> ".*./.*." right 0 1.0
+"得到/VV" -> "STOP/STOP" left 1 1.0
+"得到/VV" -> ".*./.*." left 1 1.0
+"得到/VV" -> ".*./.*." right 1 1.0
+"完/VV" -> ".*./.*." right 0 1.0
+"得到/VV" -> "STOP/STOP" right 2 1.0
+"得到/VV" -> ".*./.*." right 2 1.0
+"完/VV" -> ".*./.*." left 0 1.0
+"保障/NN" -> "STOP/STOP" right 0 1.0
+"保障/NN" -> ".*./.*." right 0 1.0
+"保障/NN" -> "STOP/STOP" left 0 1.0
+"保障/NN" -> ".*./.*." left 0 1.0
+"完/VV" -> "STOP/STOP" right 1 1.0
+"完/VV" -> ".*./.*." right 1 1.0
+"完/VV" -> "STOP/STOP" left 1 1.0
+"完/VV" -> ".*./.*." left 1 1.0
+"讲/VV" -> ".*./.*." right 0 1.0
+"讲/VV" -> ".*./.*." left 0 1.0
+"讲/VV" -> "STOP/STOP" right 0 1.0
+"利益/NN" -> "STOP/STOP" right 0 1.0
+"利益/NN" -> ".*./.*." right 0 1.0
+"利益/NN" -> "STOP/STOP" left 0 1.0
+"利益/NN" -> ".*./.*." left 0 1.0
+"到/VV" -> "STOP/STOP" left 4 1.0
+"到/VV" -> ".*./.*." left 4 1.0
+"讲/VV" -> "STOP/STOP" left 1 1.0
+"讲/VV" -> ".*./.*." left 1 1.0
+"但/AD~IP" -> "STOP/STOP" right 0 1.0
+"但/AD~IP" -> ".*./.*." right 0 1.0
+"但/AD~IP" -> "STOP/STOP" left 0 1.0
+"但/AD~IP" -> ".*./.*." left 0 1.0
+"只/AD~VP" -> "STOP/STOP" left 0 1.0
+"只/AD~VP" -> "STOP/STOP" right 0 1.0
+"只/AD~VP" -> ".*./.*." right 0 1.0
+"只/AD~VP" -> ".*./.*." left 0 1.0
+"规矩/NN" -> "STOP/STOP" right 0 1.0
+"规矩/NN" -> ".*./.*." right 0 1.0
+"规矩/NN" -> "STOP/STOP" left 0 1.0
+"规矩/NN" -> ".*./.*." left 0 1.0
+"能/VV" -> ".*./.*." right 0 1.0
+"能/VV" -> ".*./.*." left 0 1.0
+"能/VV" -> "STOP/STOP" right 0 1.0
+"能/VV" -> "STOP/STOP" left 0 1.0
+"到/VV" -> ".*./.*." left 0 1.0
+"办事/NN" -> "STOP/STOP" right 0 1.0
+"办事/NN" -> ".*./.*." right 0 1.0
+"办事/NN" -> "STOP/STOP" left 0 1.0
+"办事/NN" -> ".*./.*." left 0 1.0
+"到/VV" -> "STOP/STOP" right 0 1.0
+"到/VV" -> ".*./.*." right 0 1.0
+"投资/VV" -> "STOP/STOP" right 0 1.0
+"投资/VV" -> ".*./.*." right 0 1.0
+"投资/VV" -> "STOP/STOP" left 0 1.0
+"投资/VV" -> ".*./.*." left 0 1.0
+"章法/NN" -> "STOP/STOP" right 0 1.0
+"章法/NN" -> ".*./.*." right 0 1.0
+"章法/NN" -> "STOP/STOP" left 0 1.0
+"章法/NN" -> ".*./.*." left 0 1.0
+"到/VV" -> ".*./.*." left 2 2.0
+"逐步/AD~VP" -> "STOP/STOP" right 0 1.0
+"逐步/AD~VP" -> ".*./.*." right 0 1.0
+"逐步/AD~VP" -> "STOP/STOP" left 0 1.0
+"逐步/AD~VP" -> ".*./.*." left 0 1.0
+"评/NN" -> "STOP/STOP" right 2 1.0
+"评/NN" -> ".*./.*." right 2 1.0
+"评/NN" -> ".*./.*." right 1 1.0
+"受到/VV" -> ".*./.*." left 4 2.0
+"受到/VV" -> ".*./.*." right 4 4.0
+"受到/VV" -> "STOP/STOP" right 4 1.0
+"粗/VA" -> "STOP/STOP" left 4 1.0
+"粗/VA" -> ".*./.*." left 4 1.0
+"受到/VV" -> "STOP/STOP" left 4 1.0
+"评/NN" -> ".*./.*." right 0 1.0
+"评/NN" -> "STOP/STOP" left 0 1.0
+"评/NN" -> ".*./.*." left 0 1.0
+"紧跟/VV" -> ".*./.*." right 0 1.0
+"粗/VA" -> ".*./.*." right 2 2.0
+"粗/VA" -> ".*./.*." left 2 1.0
+"紧跟/VV" -> ".*./.*." left 0 1.0
+"还/AD~VP" -> ".*./.*." right 0 1.0
+"还/AD~VP" -> ".*./.*." left 0 1.0
+"有些/PN" -> "STOP/STOP" right 0 2.0
+"有些/PN" -> ".*./.*." right 0 2.0
+"有些/PN" -> "STOP/STOP" left 0 2.0
+"投资者/NN" -> ".*./.*." right 1 1.0
+"有些/PN" -> ".*./.*." left 0 2.0
+"还/AD~VP" -> "STOP/STOP" right 0 1.0
+"投资者/NN" -> "STOP/STOP" right 1 1.0
+"还/AD~VP" -> "STOP/STOP" left 0 1.0
+"投资者/NN" -> ".*./.*." right 0 1.0
+"受到/VV" -> ".*./.*." left 3 2.0
+"有待/VV-IP" -> ".*./.*." left 0 1.0
+"粗/VA" -> ".*./.*." right 3 2.0
+"粗/VA" -> "STOP/STOP" right 3 1.0
+"有待/VV-IP" -> "STOP/STOP" right 0 1.0
+"有待/VV-IP" -> ".*./.*." right 0 1.0
+"社会/NN" -> "STOP/STOP" right 2 1.0
+"紧跟/VV" -> "STOP/STOP" right 1 1.0
+"投资者/NN" -> "STOP/STOP" left 0 1.0
+"社会/NN" -> ".*./.*." right 2 1.0
+"紧跟/VV" -> ".*./.*." right 1 1.0
+"投资者/NN" -> ".*./.*." left 0 1.0
+"社会/NN" -> ".*./.*." right 1 1.0
+"受到/VV" -> ".*./.*." right 0 1.0
+"粗/VA" -> ".*./.*." right 0 1.0
+"粗/VA" -> ".*./.*." left 0 1.0
+"紧跟/VV" -> "STOP/STOP" left 2 1.0
+"紧跟/VV" -> ".*./.*." left 2 1.0
+"受到/VV" -> ".*./.*." left 0 1.0
+"社会/NN" -> ".*./.*." right 0 1.0
+"粗/VA" -> ".*./.*." right 1 1.0
+"粗/VA" -> ".*./.*." left 1 1.0
+"受到/VV" -> ".*./.*." left 1 1.0
+"社会/NN" -> ".*./.*." left 0 1.0
+"受到/VV" -> ".*./.*." right 1 1.0
+"有待/VV-IP" -> "STOP/STOP" left 2 1.0
+"有待/VV-IP" -> ".*./.*." left 2 1.0
+"专门/JJ" -> "STOP/STOP" right 0 1.0
+"社会/NN" -> "STOP/STOP" left 0 1.0
+"专门/JJ" -> ".*./.*." right 0 1.0
+"专门/JJ" -> ".*./.*." left 0 1.0
+"专门/JJ" -> "STOP/STOP" left 0 1.0
+"完善/VV" -> ".*./.*." right 1 1.0
+"完善/VV" -> ".*./.*." right 0 1.0
+"完善/VV" -> "STOP/STOP" left 0 1.0
+"完善/VV" -> ".*./.*." left 0 1.0
+"认为/VV-IP" -> ".*./.*." left 1 1.0
+"认为/VV-IP" -> "STOP/STOP" right 1 1.0
+"认为/VV-IP" -> ".*./.*." right 1 1.0
+"认为/VV-IP" -> ".*./.*." right 0 1.0
+"认为/VV-IP" -> ".*./.*." left 0 1.0
+"完善/VV" -> "STOP/STOP" right 2 1.0
+"完善/VV" -> ".*./.*." right 2 1.0
+"实践/NN" -> "STOP/STOP" right 0 1.0
+"实践/NN" -> ".*./.*." right 0 1.0
+"实践/NN" -> "STOP/STOP" left 0 1.0
+"实践/NN" -> ".*./.*." left 0 1.0
+"认为/VV-IP" -> "STOP/STOP" left 4 1.0
+"认为/VV-IP" -> ".*./.*." left 4 1.0
+"好/JJ" -> "STOP/STOP" right 0 1.0
+"好/JJ" -> ".*./.*." right 0 1.0
+"好/JJ" -> "STOP/STOP" left 0 1.0
+"好/JJ" -> ".*./.*." left 0 1.0
+"监督/NN" -> ".*./.*." right 0 1.0
+"中/LC" -> ".*./.*." right 0 1.0
+"监督/NN" -> "STOP/STOP" right 0 1.0
+"监督/NN" -> "STOP/STOP" left 0 1.0
+"监督/NN" -> ".*./.*." left 0 1.0
+"检查/NN" -> "STOP/STOP" right 1 1.0
+"检查/NN" -> ".*./.*." right 1 1.0
+"中/LC" -> "STOP/STOP" left 0 1.0
+"中/LC" -> ".*./.*." left 0 1.0
+"检查/NN" -> ".*./.*." right 0 1.0
+"检查/NN" -> "STOP/STOP" left 0 1.0
+"检查/NN" -> ".*./.*." left 0 1.0
+"中/LC" -> "STOP/STOP" right 1 1.0
+"中/LC" -> ".*./.*." right 1 1.0
+"种/M" -> "STOP/STOP" right 0 1.0
+"种/M" -> ".*./.*." right 0 1.0
+"种/M" -> "STOP/STOP" left 0 1.0
+"种/M" -> ".*./.*." left 0 1.0
+"队伍/NN" -> "STOP/STOP" right 1 1.0
+"队伍/NN" -> ".*./.*." right 1 1.0
+"队伍/NN" -> ".*./.*." right 0 1.0
+"队伍/NN" -> "STOP/STOP" left 0 1.0
+"队伍/NN" -> ".*./.*." left 0 1.0
+"他们/PN" -> "STOP/STOP" right 0 1.0
+"他们/PN" -> ".*./.*." right 0 1.0
+"他们/PN" -> "STOP/STOP" left 0 1.0
+"他们/PN" -> ".*./.*." left 0 1.0
+"送上/VV" -> "STOP/STOP" right 2 1.0
+"送上/VV" -> ".*./.*." right 2 1.0
+"送上/VV" -> "STOP/STOP" left 2 1.0
+"送上/VV" -> ".*./.*." left 2 1.0
+"进/VV" -> ".*./.*." left 4 2.0
+"部门/NN" -> ".*./.*." right 0 1.0
+"送上/VV" -> ".*./.*." right 0 1.0
+"送上/VV" -> ".*./.*." left 0 1.0
+"部门/NN" -> "STOP/STOP" left 0 1.0
+"部门/NN" -> ".*./.*." left 0 1.0
+"进/VV" -> "STOP/STOP" left 4 1.0
+"送上/VV" -> ".*./.*." right 1 1.0
+"部门/NN" -> "STOP/STOP" right 1 1.0
+"部门/NN" -> ".*./.*." right 1 1.0
+"进/VV" -> ".*./.*." left 2 1.0
+"进/VV" -> "STOP/STOP" right 2 1.0
+"进/VV" -> ".*./.*." right 2 1.0
+"进/VV" -> ".*./.*." left 3 2.0
+"区/NN" -> "STOP/STOP" right 0 1.0
+"区/NN" -> ".*./.*." right 0 1.0
+"区/NN" -> "STOP/STOP" left 0 1.0
+"区/NN" -> ".*./.*." left 0 1.0
+"进/VV" -> ".*./.*." left 0 1.0
+"进/VV" -> ".*./.*." right 0 1.0
+"进/VV" -> ".*./.*." left 1 1.0
+"违章/JJ" -> "STOP/STOP" right 0 1.0
+"违章/JJ" -> ".*./.*." right 0 1.0
+"违章/JJ" -> "STOP/STOP" left 0 1.0
+"违章/JJ" -> ".*./.*." left 0 1.0
+"环节/NN" -> "STOP/STOP" right 2 1.0
+"环节/NN" -> ".*./.*." right 2 1.0
+"环节/NN" -> ".*./.*." right 0 1.0
+"环节/NN" -> "STOP/STOP" left 0 1.0
+"环节/NN" -> ".*./.*." left 0 1.0
+"为/P-IP" -> "STOP/STOP" left 3 1.0
+"为/P-IP" -> ".*./.*." left 3 1.0
+"环境/NN" -> "STOP/STOP" right 0 1.0
+"环境/NN" -> ".*./.*." right 0 1.0
+"环境/NN" -> "STOP/STOP" left 0 1.0
+"环境/NN" -> ".*./.*." left 0 1.0
+"为/P-IP" -> ".*./.*." left 0 1.0
+"为/P-IP" -> "STOP/STOP" right 0 1.0
+"为/P-IP" -> ".*./.*." right 0 1.0
+"配套/NN" -> ".*./.*." right 0 1.0
+"配套/NN" -> "STOP/STOP" left 0 1.0
+"配套/NN" -> ".*./.*." left 0 1.0
+"具体/VA" -> "STOP/STOP" right 1 1.0
+"具体/VA" -> ".*./.*." right 1 1.0
+"意见/NN" -> ".*./.*." right 1 1.0
+"意见/NN" -> ".*./.*." right 0 1.0
+"具体/VA" -> ".*./.*." right 0 1.0
+"具体/VA" -> ".*./.*." left 0 1.0
+"配套/NN" -> ".*./.*." right 1 1.0
+"具体/VA" -> "STOP/STOP" left 0 1.0
+"及/CC" -> "STOP/STOP" right 0 1.0
+"及/CC" -> ".*./.*." right 0 1.0
+"及/CC" -> "STOP/STOP" left 0 1.0
+"及/CC" -> ".*./.*." left 0 1.0
+"意见/NN" -> "STOP/STOP" left 0 1.0
+"意见/NN" -> ".*./.*." left 0 1.0
+"配套/NN" -> ".*./.*." right 2 3.0
+"配套/NN" -> "STOP/STOP" right 2 1.0
+"意见/NN" -> "STOP/STOP" right 3 1.0
+"意见/NN" -> ".*./.*." right 3 1.0
+"管线/NN" -> ".*./.*." right 0 1.0
+"管线/NN" -> "STOP/STOP" left 0 1.0
+"管线/NN" -> "STOP/STOP" right 0 1.0
+"管线/NN" -> ".*./.*." left 0 1.0
+"又/AD~VP" -> "STOP/STOP" right 0 1.0
+"又/AD~VP" -> ".*./.*." right 0 1.0
+"又/AD~VP" -> "STOP/STOP" left 0 1.0
+"又/AD~VP" -> ".*./.*." left 0 1.0
+"做到/VV-IP" -> ".*./.*." left 4 1.0
+"做到/VV-IP" -> "STOP/STOP" left 4 1.0
+"通信/NN" -> "STOP/STOP" right 0 1.0
+"通信/NN" -> ".*./.*." right 0 1.0
+"通信/NN" -> "STOP/STOP" left 0 1.0
+"通信/NN" -> ".*./.*." left 0 1.0
+"然后/AD~VP" -> "STOP/STOP" right 0 1.0
+"然后/AD~VP" -> ".*./.*." right 0 1.0
+"然后/AD~VP" -> "STOP/STOP" left 0 1.0
+"然后/AD~VP" -> ".*./.*." left 0 1.0
+"若干/CD" -> "STOP/STOP" right 0 1.0
+"若干/CD" -> ".*./.*." right 0 1.0
+"若干/CD" -> "STOP/STOP" left 0 1.0
+"若干/CD" -> ".*./.*." left 0 1.0
+"设施/NN" -> "STOP/STOP" right 0 1.0
+"设施/NN" -> ".*./.*." right 0 1.0
+"设施/NN" -> "STOP/STOP" left 0 1.0
+"设施/NN" -> ".*./.*." left 0 1.0
+"做到/VV-IP" -> ".*./.*." left 1 1.0
+"每/DT" -> "STOP/STOP" left 1 1.0
+"每/DT" -> ".*./.*." left 1 1.0
+"做到/VV-IP" -> "STOP/STOP" right 1 1.0
+"做到/VV-IP" -> ".*./.*." right 1 1.0
+"先/AD~VP" -> "STOP/STOP" right 0 1.0
+"先/AD~VP" -> ".*./.*." right 0 1.0
+"先/AD~VP" -> "STOP/STOP" left 0 1.0
+"先/AD~VP" -> ".*./.*." left 0 1.0
+"做到/VV-IP" -> ".*./.*." right 0 1.0
+"每/DT" -> ".*./.*." left 0 1.0
+"实施/NN" -> "STOP/STOP" right 0 1.0
+"实施/NN" -> ".*./.*." right 0 1.0
+"实施/NN" -> "STOP/STOP" left 0 1.0
+"实施/NN" -> ".*./.*." left 0 1.0
+"每/DT" -> "STOP/STOP" right 0 1.0
+"每/DT" -> ".*./.*." right 0 1.0
+"做到/VV-IP" -> ".*./.*." left 0 1.0
+"有/VE" -> ".*./.*." left 2 4.0
+"有/VE" -> "STOP/STOP" right 2 2.0
+"有/VE" -> ".*./.*." right 2 2.0
+"有/VE" -> "STOP/STOP" left 2 1.0
+"有/VE" -> "STOP/STOP" left 3 2.0
+"办法/NN" -> ".*./.*." right 4 2.0
+"办法/NN" -> "STOP/STOP" left 4 2.0
+"办法/NN" -> ".*./.*." left 4 2.0
+"办法/NN" -> "STOP/STOP" right 4 1.0
+"有/VE" -> ".*./.*." left 3 2.0
+"基本/AD~VP" -> ".*./.*." left 0 1.0
+"基本/AD~VP" -> ".*./.*." right 0 1.0
+"整治/VV" -> "STOP/STOP" left 2 1.0
+"整治/VV" -> ".*./.*." left 2 1.0
+"基本/AD~VP" -> "STOP/STOP" right 0 1.0
+"基本/AD~VP" -> "STOP/STOP" left 0 1.0
+"有/VE" -> ".*./.*." left 0 4.0
+"有/VE" -> ".*./.*." right 0 4.0
+"拆迁/NN" -> "STOP/STOP" right 0 1.0
+"拆迁/NN" -> ".*./.*." right 0 1.0
+"拆迁/NN" -> "STOP/STOP" left 0 1.0
+"拆迁/NN" -> ".*./.*." left 0 1.0
+"工作/NN" -> "STOP/STOP" right 1 1.0
+"工作/NN" -> ".*./.*." right 1 1.0
+"有/VE" -> ".*./.*." right 1 3.0
+"整治/VV" -> ".*./.*." left 0 1.0
+"有/VE" -> ".*./.*." left 1 1.0
+"工作/NN" -> ".*./.*." right 0 1.0
+"工作/NN" -> "STOP/STOP" left 0 1.0
+"工作/NN" -> ".*./.*." left 0 1.0
+"整治/VV" -> "STOP/STOP" right 0 1.0
+"整治/VV" -> ".*./.*." right 0 1.0
+"有/VE" -> "STOP/STOP" right 1 2.0
+"办法/NN" -> ".*./.*." right 1 3.0
+"管理/NN" -> ".*./.*." right 0 2.0
+"管理/NN" -> "STOP/STOP" right 0 1.0
+"管理/NN" -> "STOP/STOP" left 0 2.0
+"管理/NN" -> ".*./.*." left 0 2.0
+"办法/NN" -> "STOP/STOP" left 1 1.0
+"办法/NN" -> ".*./.*." left 1 1.0
+"办法/NN" -> ".*./.*." right 0 3.0
+"管理/NN" -> ".*./.*." right 1 1.0
+"办法/NN" -> ".*./.*." left 0 3.0
+"明确/VA" -> "STOP/STOP" left 2 1.0
+"明确/VA" -> ".*./.*." left 2 1.0
+"都/AD~VP" -> "STOP/STOP" right 0 1.0
+"都/AD~VP" -> ".*./.*." right 0 1.0
+"都/AD~VP" -> "STOP/STOP" left 0 1.0
+"都/AD~VP" -> ".*./.*." left 0 1.0
+"有/VE" -> "STOP/STOP" left 4 1.0
+"管理/NN" -> ".*./.*." right 2 3.0
+"办法/NN" -> ".*./.*." right 3 4.0
+"明确/VA" -> ".*./.*." left 1 1.0
+"暂行/JJ" -> ".*./.*." right 0 2.0
+"暂行/JJ" -> ".*./.*." left 0 2.0
+"有/VE" -> ".*./.*." left 4 1.0
+"办法/NN" -> "STOP/STOP" right 3 1.0
+"管理/NN" -> "STOP/STOP" right 2 1.0
+"暂行/JJ" -> "STOP/STOP" right 0 2.0
+"暂行/JJ" -> "STOP/STOP" left 0 2.0
+"施工/NN" -> "STOP/STOP" right 0 2.0
+"施工/NN" -> "STOP/STOP" left 0 2.0
+"施工/NN" -> ".*./.*." right 0 2.0
+"施工/NN" -> ".*./.*." left 0 2.0
+"办法/NN" -> ".*./.*." right 2 5.0
+"明确/VA" -> ".*./.*." left 0 1.0
+"办法/NN" -> "STOP/STOP" right 2 1.0
+"招投标/NN" -> "STOP/STOP" right 0 1.0
+"招投标/NN" -> ".*./.*." right 0 1.0
+"招投标/NN" -> "STOP/STOP" left 0 1.0
+"招投标/NN" -> ".*./.*." left 0 1.0
+"明确/VA" -> "STOP/STOP" right 0 1.0
+"明确/VA" -> ".*./.*." right 0 1.0
+"其中/NN" -> "STOP/STOP" right 0 1.0
+"其中/NN" -> ".*./.*." right 0 1.0
+"其中/NN" -> "STOP/STOP" left 0 1.0
+"其中/NN" -> ".*./.*." left 0 1.0
+"在/P" -> ".*./.*." left 0 2.0
+"在/P" -> "STOP/STOP" right 0 2.0
+"在/P" -> ".*./.*." right 0 2.0
+"市场/NN" -> "STOP/STOP" right 1 1.0
+"市场/NN" -> ".*./.*." right 1 1.0
+"包括/VV" -> "STOP/STOP" right 1 1.0
+"包括/VV" -> ".*./.*." right 1 1.0
+"市场/NN" -> ".*./.*." right 0 1.0
+"出台/VV" -> ".*./.*." right 4 4.0
+"出台/VV" -> ".*./.*." left 4 4.0
+"包括/VV" -> ".*./.*." left 0 1.0
+"出台/VV" -> "STOP/STOP" left 4 1.0
+"市场/NN" -> "STOP/STOP" left 0 1.0
+"出台/VV" -> "STOP/STOP" right 4 1.0
+"市场/NN" -> ".*./.*." left 0 1.0
+"包括/VV" -> ".*./.*." right 0 1.0
+"在/P" -> "STOP/STOP" left 2 2.0
+"在/P" -> ".*./.*." left 2 2.0
+"出台/VV" -> ".*./.*." left 3 2.0
+"出台/VV" -> ".*./.*." right 3 2.0
+"实际/NN" -> ".*./.*." right 0 1.0
+"规定/NN" -> "STOP/STOP" right 2 3.0
+"规定/NN" -> ".*./.*." right 2 3.0
+"实际/NN" -> "STOP/STOP" left 0 1.0
+"实际/NN" -> ".*./.*." left 0 1.0
+"出台/VV" -> ".*./.*." right 2 1.0
+"结合/VV" -> ".*./.*." left 0 1.0
+"结合/VV" -> "STOP/STOP" right 0 1.0
+"结合/VV" -> ".*./.*." right 0 1.0
+"规定/NN" -> ".*./.*." right 0 4.0
+"出台/VV" -> ".*./.*." left 1 1.0
+"出台/VV" -> ".*./.*." right 1 1.0
+"规定/NN" -> "STOP/STOP" left 0 4.0
+"规定/NN" -> ".*./.*." left 0 4.0
+"实际/NN" -> "STOP/STOP" right 2 1.0
+"实际/NN" -> ".*./.*." right 2 1.0
+"规定/NN" -> ".*./.*." right 1 3.0
+"出台/VV" -> ".*./.*." right 0 1.0
+"包括/VV" -> "STOP/STOP" left 4 1.0
+"包括/VV" -> ".*./.*." left 4 1.0
+"结合/VV" -> "STOP/STOP" left 2 1.0
+"结合/VV" -> ".*./.*." left 2 1.0
+"规定/NN" -> "STOP/STOP" right 1 1.0
+"出台/VV" -> ".*./.*." left 0 1.0
+"上海市/NR" -> ".*./.*." right 0 1.0
+"上海市/NR" -> "STOP/STOP" left 0 1.0
+"上海市/NR" -> ".*./.*." left 0 1.0
+"上海市/NR" -> ".*./.*." right 1 1.0
+"现象/NN" -> ".*./.*." right 0 1.0
+"现象/NN" -> "STOP/STOP" left 0 1.0
+"现象/NN" -> ".*./.*." left 0 1.0
+"上海市/NR" -> "STOP/STOP" right 2 1.0
+"上海市/NR" -> ".*./.*." right 2 1.0
+"管委会/NN" -> "STOP/STOP" right 1 1.0
+"管委会/NN" -> ".*./.*." right 1 1.0
+"管委会/NN" -> ".*./.*." right 0 1.0
+"现象/NN" -> "STOP/STOP" right 1 1.0
+"现象/NN" -> ".*./.*." right 1 1.0
+"管委会/NN" -> "STOP/STOP" left 0 1.0
+"管委会/NN" -> ".*./.*." left 0 1.0
+"主要/JJ" -> "STOP/STOP" right 0 1.0
+"主要/JJ" -> ".*./.*." right 0 1.0
+"主要/JJ" -> "STOP/STOP" left 0 1.0
+"主要/JJ" -> ".*./.*." left 0 1.0
+"这/DT" -> "STOP/STOP" left 1 2.0
+"这/DT" -> ".*./.*." left 1 2.0
+"行为/NN" -> "STOP/STOP" right 1 1.0
+"行为/NN" -> ".*./.*." right 1 1.0
+"系列/M" -> "STOP/STOP" left 0 1.0
+"系列/M" -> ".*./.*." left 0 1.0
+"系列/M" -> ".*./.*." right 0 1.0
+"这/DT" -> ".*./.*." left 0 2.0
+"行为/NN" -> ".*./.*." right 0 1.0
+"这/DT" -> "STOP/STOP" right 0 2.0
+"这/DT" -> ".*./.*." right 0 2.0
+"行为/NN" -> "STOP/STOP" left 0 1.0
+"行为/NN" -> ".*./.*." left 0 1.0
+"系列/M" -> "STOP/STOP" right 1 1.0
+"系列/M" -> ".*./.*." right 1 1.0
+"热土/NN" -> ".*./.*." right 0 1.0
+"热土/NN" -> "STOP/STOP" left 0 1.0
+"热土/NN" -> ".*./.*." left 0 1.0
+"年/M" -> "STOP/STOP" right 0 1.0
+"年/M" -> ".*./.*." right 0 1.0
+"年/M" -> "STOP/STOP" left 0 1.0
+"年/M" -> ".*./.*." left 0 1.0
+"热土/NN" -> "STOP/STOP" right 2 1.0
+"热土/NN" -> ".*./.*." right 2 1.0
+"遍布/VV" -> ".*./.*." left 2 1.0
+"四千余/CD" -> "STOP/STOP" right 0 1.0
+"遍布/VV" -> "STOP/STOP" left 2 1.0
+"四千余/CD" -> ".*./.*." right 0 1.0
+"工地/NN" -> ".*./.*." right 3 1.0
+"四千余/CD" -> "STOP/STOP" left 0 1.0
+"四千余/CD" -> ".*./.*." left 0 1.0
+"防止/VV-IP" -> "STOP/STOP" left 2 1.0
+"防止/VV-IP" -> ".*./.*." left 2 1.0
+"工地/NN" -> "STOP/STOP" right 3 1.0
+"工地/NN" -> ".*./.*." right 2 2.0
+"遍布/VV" -> "STOP/STOP" right 3 1.0
+"遍布/VV" -> ".*./.*." right 3 1.0
+"遍布/VV" -> ".*./.*." right 0 1.0
+"工地/NN" -> ".*./.*." right 1 1.0
+"遍布/VV" -> ".*./.*." left 0 1.0
+"防止/VV-IP" -> ".*./.*." left 0 1.0
+"数百/CD" -> "STOP/STOP" right 0 1.0
+"数百/CD" -> ".*./.*." right 0 1.0
+"数百/CD" -> "STOP/STOP" left 0 1.0
+"数百/CD" -> ".*./.*." left 0 1.0
+"防止/VV-IP" -> ".*./.*." right 0 1.0
+"防止/VV-IP" -> "STOP/STOP" right 0 1.0
+"工地/NN" -> ".*./.*." right 0 2.0
+"工地/NN" -> "STOP/STOP" left 0 2.0
+"工地/NN" -> ".*./.*." left 0 2.0
+"工地/NN" -> "STOP/STOP" right 0 1.0
+"公司/NN" -> ".*./.*." right 0 2.0
+"公司/NN" -> "STOP/STOP" left 0 2.0
+"公司/NN" -> ".*./.*." left 0 2.0
+"上/LC" -> "STOP/STOP" left 0 1.0
+"上/LC" -> ".*./.*." left 0 1.0
+"上/LC" -> ".*./.*." right 0 1.0
+"公司/NN" -> ".*./.*." right 1 2.0
+"公司/NN" -> "STOP/STOP" right 1 1.0
+"个/M" -> ".*./.*." right 0 2.0
+"个/M" -> "STOP/STOP" left 0 2.0
+"个/M" -> ".*./.*." left 0 2.0
+"个/M" -> "STOP/STOP" right 0 1.0
+"公司/NN" -> "STOP/STOP" right 2 1.0
+"公司/NN" -> ".*./.*." right 2 1.0
+"上/LC" -> "STOP/STOP" right 2 1.0
+"上/LC" -> ".*./.*." right 2 1.0
+"个/M" -> "STOP/STOP" right 1 1.0
+"个/M" -> ".*./.*." right 1 1.0
+"回扣/NN" -> ".*./.*." right 2 1.0
+"根据/P" -> ".*./.*." left 0 1.0
+"回扣/NN" -> "STOP/STOP" right 2 1.0
+"无序/JJ" -> "STOP/STOP" right 0 1.0
+"无序/JJ" -> ".*./.*." right 0 1.0
+"无序/JJ" -> "STOP/STOP" left 0 1.0
+"无序/JJ" -> ".*./.*." left 0 1.0
+"根据/P" -> "STOP/STOP" right 0 1.0
+"根据/P" -> ".*./.*." right 0 1.0
+"回扣/NN" -> ".*./.*." right 0 1.0
+"回扣/NN" -> "STOP/STOP" left 0 1.0
+"回扣/NN" -> ".*./.*." left 0 1.0
+"建筑/NN" -> "STOP/STOP" right 1 1.0
+"建筑/NN" -> ".*./.*." right 1 1.0
+"建筑/NN" -> ".*./.*." right 0 6.0
+"根据/P" -> "STOP/STOP" left 3 1.0
+"根据/P" -> ".*./.*." left 3 1.0
+"片/M" -> ".*./.*." left 0 1.0
+"建筑/NN" -> "STOP/STOP" right 0 5.0
+"建筑/NN" -> "STOP/STOP" left 0 6.0
+"建筑/NN" -> ".*./.*." left 0 6.0
+"片/M" -> "STOP/STOP" right 0 1.0
+"片/M" -> ".*./.*." right 0 1.0
+"片/M" -> "STOP/STOP" left 0 1.0
+"发现/VV" -> "STOP/STOP" left 2 1.0
+"发现/VV" -> ".*./.*." left 2 1.0
+"没有/VV" -> "STOP/STOP" right 0 1.0
+"没有/VV" -> ".*./.*." right 0 1.0
+"没有/VV" -> "STOP/STOP" left 0 1.0
+"没有/VV" -> ".*./.*." left 0 1.0
+"成交/VV" -> ".*./.*." right 4 3.0
+"发现/VV" -> ".*./.*." left 0 1.0
+"发现/VV" -> ".*./.*." right 0 1.0
+"这些/DT" -> ".*./.*." left 0 3.0
+"这些/DT" -> "STOP/STOP" right 0 3.0
+"这些/DT" -> ".*./.*." right 0 3.0
+"这些/DT" -> "STOP/STOP" left 0 2.0
+"成交/VV" -> "STOP/STOP" right 4 1.0
+"发现/VV" -> "STOP/STOP" right 1 1.0
+"发现/VV" -> ".*./.*." right 1 1.0
+"这些/DT" -> "STOP/STOP" left 1 1.0
+"这些/DT" -> ".*./.*." left 1 1.0
+"成交/VV" -> ".*./.*." left 2 2.0
+"成交/VV" -> ".*./.*." right 2 2.0
+"使/VV-IP" -> ".*./.*." left 0 1.0
+"使/VV-IP" -> "STOP/STOP" right 0 1.0
+"使/VV-IP" -> ".*./.*." right 0 1.0
+"运转/VV" -> "STOP/STOP" right 0 1.0
+"至今/VV" -> "STOP/STOP" right 1 1.0
+"运转/VV" -> ".*./.*." right 0 1.0
+"至今/VV" -> ".*./.*." right 1 1.0
+"运转/VV" -> "STOP/STOP" left 0 1.0
+"运转/VV" -> ".*./.*." left 0 1.0
+"成交/VV" -> ".*./.*." left 3 2.0
+"至今/VV" -> ".*./.*." right 0 1.0
+"至今/VV" -> "STOP/STOP" left 0 1.0
+"至今/VV" -> ".*./.*." left 0 1.0
+"成交/VV" -> "STOP/STOP" left 3 1.0
+"成交/VV" -> ".*./.*." left 0 1.0
+"成交/VV" -> ".*./.*." right 0 1.0
+"使/VV-IP" -> ".*./.*." left 2 1.0
+"被/SB" -> "STOP/STOP" right 0 1.0
+"被/SB" -> ".*./.*." right 0 1.0
+"被/SB" -> "STOP/STOP" left 0 1.0
+"被/SB" -> ".*./.*." left 0 1.0
+"成交/VV" -> ".*./.*." left 1 1.0
+"成交/VV" -> ".*./.*." right 1 1.0
+"使/VV-IP" -> "STOP/STOP" left 3 1.0
+"使/VV-IP" -> ".*./.*." left 3 1.0
+"就/AD~VP" -> "STOP/STOP" left 0 2.0
+"就/AD~VP" -> "STOP/STOP" right 0 2.0
+"就/AD~VP" -> ".*./.*." right 0 2.0
+"就/AD~VP" -> ".*./.*." left 0 2.0
+"开始/VV" -> "STOP/STOP" right 1 1.0
+"规范/VV" -> "STOP/STOP" left 3 1.0
+"开始/VV" -> ".*./.*." right 1 1.0
+"规范/VV" -> ".*./.*." left 3 1.0
+"一亿多/CD" -> "STOP/STOP" right 0 1.0
+"一亿多/CD" -> ".*./.*." right 0 1.0
+"一亿多/CD" -> ".*./.*." left 0 1.0
+"一亿多/CD" -> "STOP/STOP" left 0 1.0
+"开始/VV" -> ".*./.*." left 0 1.0
+"规范/VV" -> ".*./.*." left 2 3.0
+"开始/VV" -> ".*./.*." right 0 1.0
+"规范/VV" -> "STOP/STOP" left 2 1.0
+"规范/VV" -> ".*./.*." left 0 2.0
+"开始/VV" -> "STOP/STOP" left 2 1.0
+"开始/VV" -> ".*./.*." left 2 1.0
+"规范/VV" -> "STOP/STOP" right 0 2.0
+"规范/VV" -> ".*./.*." right 0 2.0
+"服务/NN" -> "STOP/STOP" right 0 1.0
+"服务/NN" -> ".*./.*." right 0 1.0
+"服务/NN" -> "STOP/STOP" left 0 1.0
+"服务/NN" -> ".*./.*." left 0 1.0
+"例/M" -> "STOP/STOP" right 1 1.0
+"例/M" -> ".*./.*." right 1 1.0
+"例/M" -> ".*./.*." right 0 1.0
+"第一/OD" -> "STOP/STOP" right 0 1.0
+"第一/OD" -> ".*./.*." right 0 1.0
+"第一/OD" -> "STOP/STOP" left 0 1.0
+"第一/OD" -> ".*./.*." left 0 1.0
+"例/M" -> "STOP/STOP" left 0 1.0
+"例/M" -> ".*./.*." left 0 1.0
+"元/M" -> ".*./.*." right 0 1.0
+"药品/NN" -> "STOP/STOP" right 0 2.0
+"药品/NN" -> ".*./.*." right 0 2.0
+"药品/NN" -> "STOP/STOP" left 0 2.0
+"药品/NN" -> ".*./.*." left 0 2.0
+"元/M" -> "STOP/STOP" left 0 1.0
+"元/M" -> ".*./.*." left 0 1.0
+"采购/NN" -> "STOP/STOP" right 0 1.0
+"采购/NN" -> ".*./.*." right 0 1.0
+"采购/NN" -> "STOP/STOP" left 0 1.0
+"采购/NN" -> ".*./.*." left 0 1.0
+"元/M" -> "STOP/STOP" right 1 1.0
+"元/M" -> ".*./.*." right 1 1.0
+"医疗/NN" -> "STOP/STOP" right 0 1.0
+"医疗/NN" -> ".*./.*." right 0 1.0
+"医疗/NN" -> "STOP/STOP" left 0 1.0
+"医疗/NN" -> ".*./.*." left 0 1.0
+"机构/NN" -> "STOP/STOP" right 0 1.0
+"机构/NN" -> ".*./.*." right 0 1.0
+"机构/NN" -> "STOP/STOP" left 0 1.0
+"机构/NN" -> ".*./.*." left 0 1.0
+"正/AD~PP" -> "STOP/STOP" right 0 1.0
+"正/AD~PP" -> ".*./.*." right 0 1.0
+"正/AD~PP" -> "STOP/STOP" left 0 1.0
+"正/AD~PP" -> ".*./.*." left 0 1.0
+"诞生/VV" -> ".*./.*." right 2 2.0
+"诞生/VV" -> "STOP/STOP" right 2 1.0
+"中国/NR" -> "STOP/STOP" right 0 1.0
+"中国/NR" -> ".*./.*." right 0 1.0
+"中国/NR" -> "STOP/STOP" left 0 1.0
+"中国/NR" -> ".*./.*." left 0 1.0
+"诞生/VV" -> ".*./.*." right 0 1.0
+"新区/NN" -> "STOP/STOP" right 1 3.0
+"新区/NN" -> ".*./.*." right 1 3.0
+"诞生/VV" -> "STOP/STOP" left 0 1.0
+"诞生/VV" -> ".*./.*." left 0 1.0
+"新区/NN" -> ".*./.*." right 0 4.0
+"新区/NN" -> "STOP/STOP" left 0 4.0
+"新区/NN" -> ".*./.*." left 0 4.0
+"新区/NN" -> "STOP/STOP" right 0 1.0
+"轨道/NN" -> ".*./.*." right 0 1.0
+"纳入/VV" -> ".*./.*." right 1 1.0
+"轨道/NN" -> "STOP/STOP" left 0 1.0
+"轨道/NN" -> ".*./.*." left 0 1.0
+"纳入/VV" -> ".*./.*." right 0 1.0
+"纳入/VV" -> ".*./.*." left 0 1.0
+"轨道/NN" -> "STOP/STOP" right 1 1.0
+"轨道/NN" -> ".*./.*." right 1 1.0
+"纳入/VV" -> "STOP/STOP" right 2 1.0
+"纳入/VV" -> ".*./.*." right 2 1.0
+"纳入/VV" -> "STOP/STOP" left 2 1.0
+"纳入/VV" -> ".*./.*." left 2 1.0
+"活动/NN" -> ".*./.*." right 0 3.0
+"活动/NN" -> "STOP/STOP" left 0 3.0
+"活动/NN" -> ".*./.*." left 0 3.0
+"活动/NN" -> ".*./.*." right 1 2.0
+"去年/NT" -> "STOP/STOP" right 0 1.0
+"去年/NT" -> ".*./.*." right 0 1.0
+"去年/NT" -> "STOP/STOP" left 0 1.0
+"去年/NT" -> ".*./.*." left 0 1.0
+"比较/AD~VP" -> "STOP/STOP" right 0 2.0
+"比较/AD~VP" -> ".*./.*." right 0 2.0
+"比较/AD~VP" -> "STOP/STOP" left 0 2.0
+"规范/VA" -> "STOP/STOP" right 2 1.0
+"比较/AD~VP" -> ".*./.*." left 0 2.0
+"规范/VA" -> ".*./.*." right 2 1.0
+"活动/NN" -> ".*./.*." right 2 4.0
+"规范/VA" -> ".*./.*." right 1 1.0
+"活动/NN" -> "STOP/STOP" right 2 2.0
+"初/LC" -> "STOP/STOP" right 1 1.0
+"初/LC" -> ".*./.*." right 1 1.0
+"家/M" -> "STOP/STOP" right 1 2.0
+"家/M" -> ".*./.*." right 1 2.0
+"活动/NN" -> ".*./.*." right 3 1.0
+"家/M" -> ".*./.*." right 0 2.0
+"初/LC" -> ".*./.*." right 0 1.0
+"规范/VA" -> ".*./.*." right 0 1.0
+"规范/VA" -> ".*./.*." left 0 1.0
+"活动/NN" -> "STOP/STOP" right 3 1.0
+"初/LC" -> "STOP/STOP" left 0 1.0
+"初/LC" -> ".*./.*." left 0 1.0
+"家/M" -> "STOP/STOP" left 0 2.0
+"规范/VA" -> "STOP/STOP" left 0 1.0
+"家/M" -> ".*./.*." left 0 2.0
+"推出/VV" -> "STOP/STOP" left 2 1.0
+"推出/VV" -> ".*./.*." left 2 1.0
+"再/AD~VP" -> "STOP/STOP" right 0 1.0
+"再/AD~VP" -> ".*./.*." right 0 1.0
+"再/AD~VP" -> "STOP/STOP" left 0 1.0
+"再/AD~VP" -> ".*./.*." left 0 1.0
+"推出/VV" -> ".*./.*." left 0 1.0
+"推出/VV" -> "STOP/STOP" right 0 1.0
+"推出/VV" -> ".*./.*." right 0 1.0
+"学者/NN" -> ".*./.*." right 1 1.0
+"“/PU-QUOTE" -> "STOP/STOP" right 0 2.0
+"“/PU-QUOTE" -> ".*./.*." right 0 2.0
+"“/PU-QUOTE" -> "STOP/STOP" left 0 2.0
+"“/PU-QUOTE" -> ".*./.*." left 0 2.0
+"专家/NN" -> "STOP/STOP" right 0 1.0
+"专家/NN" -> ".*./.*." right 0 1.0
+"专家/NN" -> "STOP/STOP" left 0 1.0
+"专家/NN" -> ".*./.*." left 0 1.0
+"学者/NN" -> ".*./.*." right 0 1.0
+"学者/NN" -> "STOP/STOP" left 0 1.0
+"学者/NN" -> ".*./.*." left 0 1.0
+"国内外/NN" -> "STOP/STOP" right 0 2.0
+"国内外/NN" -> ".*./.*." right 0 2.0
+"国内外/NN" -> "STOP/STOP" left 0 2.0
+"国内外/NN" -> ".*./.*." left 0 2.0
+"学者/NN" -> ".*./.*." right 2 2.0
+"学者/NN" -> "STOP/STOP" right 2 1.0
+"教训/NN" -> ".*./.*." right 0 1.0
+"借鉴/VV" -> ".*./.*." left 4 5.0
+"借鉴/VV" -> "STOP/STOP" left 4 1.0
+"简单/VA" -> "STOP/STOP" right 0 1.0
+"简单/VA" -> ".*./.*." right 0 1.0
+"简单/VA" -> "STOP/STOP" left 0 1.0
+"简单/VA" -> ".*./.*." left 0 1.0
+"教训/NN" -> "STOP/STOP" left 0 1.0
+"教训/NN" -> ".*./.*." left 0 1.0
+"教训/NN" -> ".*./.*." right 1 1.0
+"特区/NN" -> ".*./.*." right 2 3.0
+"特区/NN" -> "STOP/STOP" right 2 1.0
+"因为/P-IP" -> "STOP/STOP" left 2 1.0
+"因为/P-IP" -> ".*./.*." left 2 1.0
+"聘请/VV" -> "STOP/STOP" left 2 1.0
+"聘请/VV" -> ".*./.*." left 2 1.0
+"深圳/NR" -> "STOP/STOP" left 1 1.0
+"深圳/NR" -> ".*./.*." left 1 1.0
+"因为/P-IP" -> "STOP/STOP" right 1 1.0
+"因为/P-IP" -> ".*./.*." right 1 1.0
+"聘请/VV" -> ".*./.*." left 0 1.0
+"特区/NN" -> ".*./.*." right 0 1.0
+"因为/P-IP" -> ".*./.*." right 0 1.0
+"因为/P-IP" -> ".*./.*." left 0 1.0
+"深圳/NR" -> ".*./.*." left 0 1.0
+"教训/NN" -> "STOP/STOP" right 3 1.0
+"聘请/VV" -> "STOP/STOP" right 0 1.0
+"深圳/NR" -> "STOP/STOP" right 0 1.0
+"特区/NN" -> "STOP/STOP" left 0 1.0
+"教训/NN" -> ".*./.*." right 3 1.0
+"聘请/VV" -> ".*./.*." right 0 1.0
+"特区/NN" -> ".*./.*." left 0 1.0
+"”/PU-QUOTE" -> "STOP/STOP" right 0 2.0
+"”/PU-QUOTE" -> "STOP/STOP" left 0 2.0
+"深圳/NR" -> ".*./.*." right 0 1.0
+"”/PU-QUOTE" -> ".*./.*." right 0 2.0
+"”/PU-QUOTE" -> ".*./.*." left 0 2.0
+"借鉴/VV" -> ".*./.*." right 0 1.0
+"国家/NN" -> ".*./.*." right 0 2.0
+"借鉴/VV" -> ".*./.*." left 0 1.0
+"国家/NN" -> "STOP/STOP" left 0 2.0
+"国家/NN" -> ".*./.*." left 0 2.0
+"国家/NN" -> "STOP/STOP" right 0 1.0
+"国家/NN" -> "STOP/STOP" right 1 1.0
+"国家/NN" -> ".*./.*." right 1 1.0
+"借鉴/VV" -> "STOP/STOP" right 1 1.0
+"借鉴/VV" -> ".*./.*." right 1 1.0
+"和/CC" -> "STOP/STOP" right 0 4.0
+"和/CC" -> ".*./.*." right 0 4.0
+"和/CC" -> "STOP/STOP" left 0 4.0
+"和/CC" -> ".*./.*." left 0 4.0
+"借鉴/VV" -> ".*./.*." left 3 2.0
+"做法/NN" -> ".*./.*." right 0 2.0
+"做法/NN" -> "STOP/STOP" left 0 2.0
+"做法/NN" -> ".*./.*." left 0 2.0
+"条例/NN" -> ".*./.*." right 0 1.0
+"条例/NN" -> "STOP/STOP" left 0 1.0
+"条例/NN" -> ".*./.*." left 0 1.0
+"而/CC" -> "STOP/STOP" right 0 2.0
+"而/CC" -> ".*./.*." right 0 2.0
+"而/CC" -> "STOP/STOP" left 0 2.0
+"而/CC" -> ".*./.*." left 0 2.0
+"做法/NN" -> ".*./.*." right 3 2.0
+"条例/NN" -> "STOP/STOP" right 1 1.0
+"条例/NN" -> ".*./.*." right 1 1.0
+"做法/NN" -> "STOP/STOP" right 3 1.0
+"做法/NN" -> "STOP/STOP" right 4 1.0
+"做法/NN" -> ".*./.*." right 4 1.0
+"制定/VV" -> "STOP/STOP" right 2 2.0
+"制定/VV" -> ".*./.*." right 2 2.0
+"制定/VV" -> "STOP/STOP" left 2 2.0
+"制定/VV" -> ".*./.*." left 2 2.0
+"制定/VV" -> "STOP/STOP" right 3 1.0
+"制定/VV" -> ".*./.*." right 3 1.0
+"法规/NN" -> "STOP/STOP" right 0 1.0
+"法规/NN" -> ".*./.*." right 0 1.0
+"法规/NN" -> "STOP/STOP" left 0 1.0
+"法规/NN" -> ".*./.*." left 0 1.0
+"制定/VV" -> ".*./.*." left 0 3.0
+"制定/VV" -> ".*./.*." right 0 3.0
+"及时/AD~VP" -> "STOP/STOP" left 0 1.0
+"段/M" -> ".*./.*." right 0 1.0
+"段/M" -> "STOP/STOP" left 0 1.0
+"制定/VV" -> "STOP/STOP" left 0 1.0
+"段/M" -> ".*./.*." left 0 1.0
+"有关/JJ" -> "STOP/STOP" right 0 3.0
+"有关/JJ" -> ".*./.*." right 0 3.0
+"有关/JJ" -> "STOP/STOP" left 0 3.0
+"及时/AD~VP" -> "STOP/STOP" right 0 1.0
+"有关/JJ" -> ".*./.*." left 0 3.0
+"及时/AD~VP" -> ".*./.*." right 0 1.0
+"及时/AD~VP" -> ".*./.*." left 0 1.0
+"制定/VV" -> ".*./.*." right 1 1.0
+"制定/VV" -> ".*./.*." left 1 1.0
+"段/M" -> "STOP/STOP" right 1 1.0
+"段/M" -> ".*./.*." right 1 1.0
+"积极/AD~DVP" -> ".*./.*." left 1 1.0
+"积累/VV" -> "STOP/STOP" left 2 1.0
+"积累/VV" -> ".*./.*." left 2 1.0
+"及时/AD~DVP" -> "STOP/STOP" right 0 1.0
+"及时/AD~DVP" -> ".*./.*." right 0 1.0
+"及时/AD~DVP" -> "STOP/STOP" left 0 1.0
+"及时/AD~DVP" -> ".*./.*." left 0 1.0
+"时间/NN" -> ".*./.*." right 2 1.0
+"地/DEV" -> ".*./.*." right 0 1.0
+"积极/AD~DVP" -> ".*./.*." left 0 1.0
+"积极/AD~DVP" -> ".*./.*." right 0 1.0
+"地/DEV" -> ".*./.*." left 0 1.0
+"采取/VV" -> ".*./.*." left 4 5.0
+"采取/VV" -> "STOP/STOP" left 4 1.0
+"时间/NN" -> "STOP/STOP" right 2 1.0
+"经验/NN" -> "STOP/STOP" right 0 2.0
+"经验/NN" -> ".*./.*." right 0 2.0
+"积极/AD~DVP" -> "STOP/STOP" right 0 1.0
+"地/DEV" -> "STOP/STOP" left 0 1.0
+"经验/NN" -> ".*./.*." left 0 2.0
+"经验/NN" -> "STOP/STOP" left 0 2.0
+"积累/VV" -> ".*./.*." left 0 1.0
+"积累/VV" -> "STOP/STOP" right 0 1.0
+"积累/VV" -> ".*./.*." right 0 1.0
+"积累/VV" -> ".*./.*." left 1 1.0
+"时间/NN" -> ".*./.*." right 0 1.0
+"干/VV" -> ".*./.*." left 4 2.0
+"干/VV" -> "STOP/STOP" left 4 1.0
+"地/DEV" -> "STOP/STOP" right 2 1.0
+"地/DEV" -> ".*./.*." right 2 1.0
+"积极/AD~DVP" -> ".*./.*." left 2 1.0
+"时间/NN" -> "STOP/STOP" left 0 1.0
+"时间/NN" -> ".*./.*." left 0 1.0
+"积极/AD~DVP" -> "STOP/STOP" left 2 1.0
+"干/VV" -> ".*./.*." left 2 2.0
+"采取/VV" -> ".*./.*." left 0 1.0
+"采取/VV" -> ".*./.*." right 0 1.0
+"以后/LC" -> "STOP/STOP" right 2 1.0
+"以后/LC" -> ".*./.*." right 2 1.0
+"采取/VV" -> ".*./.*." right 3 2.0
+"采取/VV" -> "STOP/STOP" right 3 1.0
+"干/VV" -> "STOP/STOP" right 1 1.0
+"干/VV" -> ".*./.*." right 1 1.0
+"发达/JJ" -> "STOP/STOP" right 0 1.0
+"发达/JJ" -> ".*./.*." right 0 1.0
+"发达/JJ" -> "STOP/STOP" left 0 1.0
+"发达/JJ" -> ".*./.*." left 0 1.0
+"采取/VV" -> ".*./.*." right 2 4.0
+"干/VV" -> ".*./.*." right 0 1.0
+"干/VV" -> ".*./.*." left 0 1.0
+"以后/LC" -> ".*./.*." right 0 1.0
+"以后/LC" -> "STOP/STOP" left 0 1.0
+"以后/LC" -> ".*./.*." left 0 1.0
+"一/AD~VP" -> "STOP/STOP" right 0 2.0
+"一/AD~VP" -> ".*./.*." right 0 2.0
+"一/AD~VP" -> "STOP/STOP" left 0 2.0
+"一/AD~VP" -> ".*./.*." left 0 2.0
+"问题/NN" -> "STOP/STOP" right 3 1.0
+"问题/NN" -> ".*./.*." right 3 1.0
+"问题/NN" -> ".*./.*." right 2 2.0
+"问题/NN" -> ".*./.*." right 1 1.0
+"情况/NN" -> ".*./.*." right 0 1.0
+"情况/NN" -> "STOP/STOP" left 0 1.0
+"情况/NN" -> ".*./.*." left 0 1.0
+"是/VC" -> ".*./.*." left 4 7.0
+"问题/NN" -> ".*./.*." right 0 1.0
+"情况/NN" -> "STOP/STOP" right 1 1.0
+"情况/NN" -> ".*./.*." right 1 1.0
+"问题/NN" -> "STOP/STOP" left 0 1.0
+"问题/NN" -> ".*./.*." left 0 1.0
+"是/VC" -> "STOP/STOP" left 4 3.0
+"是/VC" -> ".*./.*." left 3 3.0
+"遇到/VV" -> ".*./.*." right 1 1.0
+"遇到/VV" -> "STOP/STOP" left 1 1.0
+"遇到/VV" -> ".*./.*." left 1 1.0
+"是/VC" -> "STOP/STOP" left 3 1.0
+"是/VC" -> ".*./.*." right 2 5.0
+"是/VC" -> ".*./.*." left 2 2.0
+"遇到/VV" -> ".*./.*." left 0 1.0
+"遇到/VV" -> ".*./.*." right 0 1.0
+"是/VC" -> "STOP/STOP" right 2 3.0
+"是/VC" -> ".*./.*." right 1 2.0
+"。/PU-ENDSENT" -> "STOP/STOP" right 0 8.0
+"。/PU-ENDSENT" -> ".*./.*." right 0 8.0
+"。/PU-ENDSENT" -> "STOP/STOP" left 0 8.0
+"。/PU-ENDSENT" -> ".*./.*." left 0 8.0
+"是/VC" -> "STOP/STOP" right 1 1.0
+"是/VC" -> ".*./.*." right 0 6.0
+"是/VC" -> ".*./.*." left 0 6.0
+"遇到/VV" -> ".*./.*." right 2 2.0
+"遇到/VV" -> "STOP/STOP" right 2 1.0
+"是/VC" -> "STOP/STOP" right 0 2.0
+"是/VC" -> "STOP/STOP" left 0 2.0
+"工程/NN" -> ".*./.*." right 4 2.0
+"工程/NN" -> "STOP/STOP" right 4 1.0
+"出现/VV" -> "STOP/STOP" right 1 2.0
+"出现/VV" -> ".*./.*." right 1 2.0
+"出现/VV" -> ".*./.*." right 0 3.0
+"出现/VV" -> ".*./.*." left 0 3.0
+"有序/JJ" -> "STOP/STOP" right 0 1.0
+"有序/JJ" -> ".*./.*." right 0 1.0
+"有序/JJ" -> "STOP/STOP" left 0 1.0
+"有序/JJ" -> ".*./.*." left 0 1.0
+"出现/VV" -> "STOP/STOP" left 0 1.0
+"出现/VV" -> "STOP/STOP" right 0 1.0
+"中心/NN" -> "STOP/STOP" right 4 1.0
+"中心/NN" -> ".*./.*." right 4 1.0
+"出现/VV" -> "STOP/STOP" left 2 2.0
+"出现/VV" -> ".*./.*." left 2 2.0
+"工程/NN" -> ".*./.*." right 0 2.0
+"中心/NN" -> ".*./.*." right 2 5.0
+"工程/NN" -> "STOP/STOP" left 0 2.0
+"工程/NN" -> "STOP/STOP" right 0 1.0
+"工程/NN" -> ".*./.*." left 0 2.0
+"过/AS" -> "STOP/STOP" right 0 1.0
+"过/AS" -> ".*./.*." right 0 1.0
+"以前/NT" -> ".*./.*." right 0 1.0
+"以前/NT" -> ".*./.*." left 0 1.0
+"过/AS" -> "STOP/STOP" left 0 1.0
+"过/AS" -> ".*./.*." left 0 1.0
+"以前/NT" -> "STOP/STOP" right 0 1.0
+"以前/NT" -> "STOP/STOP" left 0 1.0
+"中心/NN" -> ".*./.*." right 3 3.0
+"工程/NN" -> ".*./.*." right 1 1.0
+"中心/NN" -> "STOP/STOP" right 3 1.0
+"中心/NN" -> ".*./.*." right 0 2.0
+"中心/NN" -> "STOP/STOP" left 0 2.0
+"中心/NN" -> ".*./.*." left 0 2.0
+"中心/NN" -> ".*./.*." right 1 1.0
+"金融/NN" -> ".*./.*." right 1 1.0
+"振兴/VV" -> ".*./.*." left 1 1.0
+"现代化/NN" -> "STOP/STOP" right 0 1.0
+"现代化/NN" -> ".*./.*." right 0 1.0
+"现代化/NN" -> "STOP/STOP" left 0 1.0
+"现代化/NN" -> ".*./.*." left 0 1.0
+"振兴/VV" -> ".*./.*." left 0 1.0
+"金融/NN" -> ".*./.*." right 0 1.0
+"金融/NN" -> "STOP/STOP" left 0 1.0
+"金融/NN" -> ".*./.*." left 0 1.0
+"振兴/VV" -> "STOP/STOP" right 0 1.0
+"振兴/VV" -> ".*./.*." right 0 1.0
+"件/M" -> "STOP/STOP" right 1 1.0
+"件/M" -> ".*./.*." right 1 1.0
+"振兴/VV" -> "STOP/STOP" left 3 1.0
+"振兴/VV" -> ".*./.*." left 3 1.0
+"金融/NN" -> ".*./.*." right 2 3.0
+"件/M" -> ".*./.*." right 0 1.0
+"振兴/VV" -> ".*./.*." left 2 1.0
+"曾/AD~VP" -> "STOP/STOP" left 0 1.0
+"七十一/CD" -> "STOP/STOP" right 0 1.0
+"金融/NN" -> "STOP/STOP" right 2 1.0
+"七十一/CD" -> ".*./.*." right 0 1.0
+"七十一/CD" -> "STOP/STOP" left 0 1.0
+"七十一/CD" -> ".*./.*." left 0 1.0
+"件/M" -> "STOP/STOP" left 0 1.0
+"曾/AD~VP" -> "STOP/STOP" right 0 1.0
+"件/M" -> ".*./.*." left 0 1.0
+"曾/AD~VP" -> ".*./.*." right 0 1.0
+"曾/AD~VP" -> ".*./.*." left 0 1.0
+"对/P" -> ".*./.*." left 0 1.0
+"新/JJ" -> "STOP/STOP" right 0 2.0
+"新/JJ" -> ".*./.*." right 0 2.0
+"新/JJ" -> "STOP/STOP" left 0 2.0
+"新/JJ" -> ".*./.*." left 0 2.0
+"对/P" -> "STOP/STOP" right 0 1.0
+"对/P" -> ".*./.*." right 0 1.0
+"，/PU-COMMA" -> "STOP/STOP" right 0 30.0
+"，/PU-COMMA" -> ".*./.*." right 0 30.0
+"，/PU-COMMA" -> "STOP/STOP" left 0 30.0
+"，/PU-COMMA" -> ".*./.*." left 0 30.0
+"开放/NN" -> "STOP/STOP" right 2 1.0
+"开放/NN" -> ".*./.*." right 2 1.0
+"对/P" -> "STOP/STOP" left 1 1.0
+"对/P" -> ".*./.*." left 1 1.0
+"开放/NN" -> ".*./.*." right 1 1.0
+"此/PN" -> "STOP/STOP" right 0 1.0
+"此/PN" -> ".*./.*." right 0 1.0
+"此/PN" -> "STOP/STOP" left 0 1.0
+"此/PN" -> ".*./.*." left 0 1.0
+"开放/NN" -> ".*./.*." right 0 1.0
+"开放/NN" -> "STOP/STOP" left 0 1.0
+"开放/NN" -> ".*./.*." left 0 1.0
+"进行/NN" -> ".*./.*." right 1 1.0
+"确保/VV" -> ".*./.*." left 1 1.0
+"一/CD" -> "STOP/STOP" right 0 5.0
+"一/CD" -> ".*./.*." right 0 5.0
+"一/CD" -> "STOP/STOP" left 0 5.0
+"一/CD" -> ".*./.*." left 0 5.0
+"进行/NN" -> ".*./.*." right 0 1.0
+"确保/VV" -> ".*./.*." left 0 1.0
+"文件/NN" -> "STOP/STOP" right 4 1.0
+"进行/VV" -> ".*./.*." right 2 1.0
+"文件/NN" -> ".*./.*." right 4 1.0
+"进行/NN" -> "STOP/STOP" left 0 1.0
+"进行/VV" -> "STOP/STOP" left 2 1.0
+"进行/NN" -> ".*./.*." left 0 1.0
+"进行/VV" -> ".*./.*." left 2 1.0
+"确保/VV" -> "STOP/STOP" right 0 1.0
+"确保/VV" -> ".*./.*." right 0 1.0
+"进行/VV" -> "STOP/STOP" right 2 1.0
+"确保/VV" -> "STOP/STOP" left 3 1.0
+"确保/VV" -> ".*./.*." left 3 1.0
+"进行/VV" -> ".*./.*." right 0 1.0
+"进行/VV" -> ".*./.*." left 0 1.0
+"进行/NN" -> "STOP/STOP" right 2 1.0
+"进行/NN" -> ".*./.*." right 2 1.0
+"文件/NN" -> ".*./.*." right 1 4.0
+"不/AD~VP" -> ".*./.*." right 0 2.0
+"不/AD~VP" -> ".*./.*." left 0 2.0
+"法规性/NN" -> "STOP/STOP" right 0 4.0
+"文件/NN" -> "STOP/STOP" right 1 1.0
+"法规性/NN" -> "STOP/STOP" left 0 4.0
+"不/AD~VP" -> "STOP/STOP" right 0 2.0
+"不/AD~VP" -> "STOP/STOP" left 0 2.0
+"法规性/NN" -> ".*./.*." right 0 4.0
+"法规性/NN" -> ".*./.*." left 0 4.0
+"文件/NN" -> ".*./.*." right 0 5.0
+"文件/NN" -> ".*./.*." left 0 5.0
+"文件/NN" -> "STOP/STOP" left 0 5.0
+"文件/NN" -> ".*./.*." right 3 1.0
+"项/M" -> ".*./.*." right 0 2.0
+"项/M" -> ".*./.*." left 0 2.0
+"文件/NN" -> "STOP/STOP" right 3 1.0
+"项/M" -> "STOP/STOP" left 0 2.0
+"跨世纪/JJ" -> "STOP/STOP" right 0 1.0
+"跨世纪/JJ" -> "STOP/STOP" left 0 1.0
+"跨世纪/JJ" -> ".*./.*." right 0 1.0
+"跨世纪/JJ" -> ".*./.*." left 0 1.0
+"文件/NN" -> ".*./.*." right 2 4.0
+"大量/AD~VP" -> "STOP/STOP" right 0 1.0
+"因此/AD~IP" -> "STOP/STOP" right 0 1.0
+"因此/AD~IP" -> "STOP/STOP" left 0 1.0
+"大量/AD~VP" -> "STOP/STOP" left 0 1.0
+"项/M" -> ".*./.*." right 1 2.0
+"因此/AD~IP" -> ".*./.*." right 0 1.0
+"因此/AD~IP" -> ".*./.*." left 0 1.0
+"大量/AD~VP" -> ".*./.*." right 0 1.0
+"大量/AD~VP" -> ".*./.*." left 0 1.0
+"文件/NN" -> "STOP/STOP" right 2 2.0
+"项/M" -> "STOP/STOP" right 1 2.0
+"文教/NN" -> ".*./.*." right 2 4.0
+"领域/NN" -> ".*./.*." right 0 1.0
+"领域/NN" -> ".*./.*." left 0 1.0
+"了/AS" -> ".*./.*." right 0 6.0
+"了/AS" -> ".*./.*." left 0 6.0
+"了/AS" -> "STOP/STOP" right 0 6.0
+"领域/NN" -> "STOP/STOP" left 0 1.0
+"了/AS" -> "STOP/STOP" left 0 6.0
+"文教/NN" -> ".*./.*." right 3 5.0
+"文教/NN" -> "STOP/STOP" right 3 1.0
+"文教/NN" -> ".*./.*." right 0 1.0
+"文教/NN" -> ".*./.*." left 0 1.0
+"文教/NN" -> ".*./.*." right 1 1.0
+"文教/NN" -> "STOP/STOP" left 1 1.0
+"文教/NN" -> ".*./.*." left 1 1.0
+"规划/NN" -> ".*./.*." right 0 1.0
+"来/LC" -> ".*./.*." right 0 1.0
+"来/LC" -> ".*./.*." left 0 1.0
+"规划/NN" -> "STOP/STOP" right 0 1.0
+"规划/NN" -> "STOP/STOP" left 0 1.0
+"来/LC" -> "STOP/STOP" left 0 1.0
+"领域/NN" -> "STOP/STOP" right 4 1.0
+"规划/NN" -> ".*./.*." left 0 1.0
+"领域/NN" -> ".*./.*." right 4 1.0
+"科技/NN" -> "STOP/STOP" right 0 1.0
+"科技/NN" -> ".*./.*." right 0 1.0
+"来/LC" -> "STOP/STOP" right 1 1.0
+"科技/NN" -> ".*./.*." left 0 1.0
+"来/LC" -> ".*./.*." right 1 1.0
+"科技/NN" -> "STOP/STOP" left 0 1.0
+"经济/NN" -> ".*./.*." left 0 5.0
+"经济/NN" -> "STOP/STOP" right 0 5.0
+"经济/NN" -> ".*./.*." right 0 5.0
+"经济/NN" -> "STOP/STOP" left 0 5.0
+"贸易/NN" -> "STOP/STOP" right 0 2.0
+"贸易/NN" -> ".*./.*." right 0 2.0
+"贸易/NN" -> ".*./.*." left 0 2.0
+"贸易/NN" -> "STOP/STOP" left 0 2.0
+"颁布/VV" -> ".*./.*." right 0 1.0
+"颁布/VV" -> ".*./.*." left 0 1.0
+"近年/NT" -> ".*./.*." right 0 1.0
+"近年/NT" -> ".*./.*." left 0 1.0
+"）/PU-PAREN" -> ".*./.*." right 0 2.0
+"）/PU-PAREN" -> ".*./.*." left 0 2.0
+"的/DEC" -> ".*./.*." right 3 1.0
+"等/ETC" -> ".*./.*." right 0 3.0
+"等/ETC" -> ".*./.*." left 0 3.0
+"）/PU-PAREN" -> "STOP/STOP" right 0 2.0
+"近年/NT" -> "STOP/STOP" right 0 1.0
+"近年/NT" -> "STOP/STOP" left 0 1.0
+"）/PU-PAREN" -> "STOP/STOP" left 0 2.0
+"的/DEC" -> "STOP/STOP" right 3 1.0
+"等/ETC" -> "STOP/STOP" right 0 3.0
+"等/ETC" -> "STOP/STOP" left 0 3.0
+"颁布/VV" -> ".*./.*." left 1 1.0
+"的/DEC" -> ".*./.*." right 2 7.0
+"实行/VV" -> ".*./.*." right 0 1.0
+"实行/VV" -> ".*./.*." left 0 1.0
+"的/DEC" -> "STOP/STOP" right 2 7.0
+"实行/VV" -> "STOP/STOP" right 0 1.0
+"实行/VV" -> "STOP/STOP" left 0 1.0
+"颁布/VV" -> ".*./.*." right 2 2.0
+"颁布/VV" -> "STOP/STOP" right 2 1.0
+"颁布/VV" -> ".*./.*." left 2 1.0
+"的/DEC" -> ".*./.*." right 0 11.0
+"的/DEC" -> ".*./.*." left 0 11.0
+"涉及/VV" -> ".*./.*." left 0 1.0
+"涉及/VV" -> "STOP/STOP" right 0 1.0
+"的/DEC" -> "STOP/STOP" left 0 11.0
+"涉及/VV" -> ".*./.*." right 0 1.0
+"颁布/VV" -> ".*./.*." left 4 4.0
+"的/DEG" -> "STOP/STOP" right 3 1.0
+"颁布/VV" -> "STOP/STOP" left 4 1.0
+"的/DEG" -> ".*./.*." right 3 1.0
+"的/DEG" -> "STOP/STOP" right 2 3.0
+"的/DEG" -> ".*./.*." right 2 3.0
+"的/DEG" -> ".*./.*." right 0 4.0
+"的/DEC" -> ".*./.*." right 4 3.0
+"的/DEG" -> ".*./.*." left 0 4.0
+"的/DEC" -> "STOP/STOP" right 4 3.0
+"涉及/VV" -> ".*./.*." left 4 1.0
+"张持坚/NR" -> ".*./.*." right 0 1.0
+"的/DEG" -> "STOP/STOP" left 0 4.0
+"张持坚/NR" -> ".*./.*." left 0 1.0
+"涉及/VV" -> "STOP/STOP" left 4 1.0
+"张持坚/NR" -> "STOP/STOP" right 0 1.0
+"张持坚/NR" -> "STOP/STOP" left 0 1.0
+"十日/NT" -> ".*./.*." right 0 1.0
+"十日/NT" -> "STOP/STOP" right 0 1.0
+"记者/NN" -> "STOP/STOP" right 3 1.0
+"十日/NT" -> "STOP/STOP" left 0 1.0
+"记者/NN" -> ".*./.*." right 3 1.0
+"十日/NT" -> ".*./.*." left 0 1.0
+"记者/NN" -> ".*./.*." left 2 3.0
+"记者/NN" -> ".*./.*." right 2 4.0
+"谢金虎/NR" -> ".*./.*." left 0 1.0
+"谢金虎/NR" -> "STOP/STOP" right 0 1.0
+"谢金虎/NR" -> ".*./.*." right 0 1.0
+"谢金虎/NR" -> "STOP/STOP" left 0 1.0
+"记者/NN" -> "STOP/STOP" left 2 1.0
+"记者/NN" -> ".*./.*." left 1 1.0
+"记者/NN" -> ".*./.*." right 1 1.0
+"记者/NN" -> ".*./.*." left 0 1.0
+"记者/NN" -> ".*./.*." right 0 1.0
+"二月/NT" -> "STOP/STOP" right 0 1.0
+"二月/NT" -> "STOP/STOP" left 0 1.0
+"二月/NT" -> ".*./.*." right 0 1.0
+"二月/NT" -> ".*./.*." left 0 1.0
+"等/P" -> "STOP/STOP" left 2 1.0
+"（/PU-PAREN" -> ".*./.*." right 0 2.0
+"电/NN" -> ".*./.*." right 0 1.0
+"电/NN" -> ".*./.*." left 0 1.0
+"（/PU-PAREN" -> ".*./.*." left 0 2.0
+"等/P" -> ".*./.*." left 2 1.0
+"（/PU-PAREN" -> "STOP/STOP" right 0 2.0
+"电/NN" -> "STOP/STOP" right 0 1.0
+"电/NN" -> "STOP/STOP" left 0 1.0
+"（/PU-PAREN" -> "STOP/STOP" left 0 2.0
+"新华社/NN" -> "STOP/STOP" right 0 1.0
+"新华社/NN" -> ".*./.*." right 0 1.0
+"新华社/NN" -> ".*./.*." left 0 1.0
+"新华社/NN" -> "STOP/STOP" left 0 1.0
+"等/P" -> ".*./.*." left 0 1.0
+"、/PU-DOU" -> "STOP/STOP" right 0 15.0
+"、/PU-DOU" -> ".*./.*." right 0 15.0
+"等/P" -> "STOP/STOP" right 0 1.0
+"、/PU-DOU" -> ".*./.*." left 0 15.0
+"等/P" -> ".*./.*." right 0 1.0
+"、/PU-DOU" -> "STOP/STOP" left 0 15.0
+"的/DEV" -> ".*./.*." right 0 1.0
+"的/DEV" -> ".*./.*." left 0 1.0
+"的/DEV" -> "STOP/STOP" left 0 1.0
+"建设/VV" -> ".*./.*." left 0 1.0
+"建设/NN" -> ".*./.*." right 2 3.0
+"的/DEV" -> ".*./.*." right 1 1.0
+"建设/VV" -> "STOP/STOP" right 0 1.0
+"同步/VV" -> "STOP/STOP" right 3 1.0
+"建设/NN" -> "STOP/STOP" right 2 1.0
+"建设/VV" -> ".*./.*." right 0 1.0
+"的/DEV" -> "STOP/STOP" right 1 1.0
+"同步/VV" -> ".*./.*." right 3 1.0
+"同步/VV" -> ".*./.*." left 0 1.0
+"建设/NN" -> ".*./.*." right 1 1.0
+"法制/NN" -> ".*./.*." right 0 3.0
+"建设/VV" -> ".*./.*." left 3 1.0
+"法制/NN" -> ".*./.*." left 0 3.0
+"法制/NN" -> "STOP/STOP" right 0 3.0
+"建设/VV" -> "STOP/STOP" left 3 1.0
+"法制/NN" -> "STOP/STOP" left 0 3.0
+"同步/VV" -> "STOP/STOP" left 0 1.0
+"同步/VV" -> ".*./.*." right 0 1.0
+"建设/NN" -> ".*./.*." right 0 5.0
+"建设/NN" -> "STOP/STOP" left 0 5.0
+"建设/NN" -> ".*./.*." left 0 5.0
+"建设/NN" -> "STOP/STOP" right 0 4.0
+".$./.$$." -> ".*./.*." right 0 11.0
+"开发/NN" -> ".*./.*." left 0 4.0
+"开发/NN" -> ".*./.*." right 0 4.0
+"开发/NN" -> "STOP/STOP" right 0 2.0
+"开发/NN" -> "STOP/STOP" left 0 4.0
+"开发/NN" -> "STOP/STOP" right 1 2.0
+"开发/NN" -> ".*./.*." right 1 2.0
+"浦东/NR" -> ".*./.*." right 0 10.0
+"与/CC" -> "STOP/STOP" right 0 1.0
+"浦东/NR" -> "STOP/STOP" left 0 10.0
+"浦东/NR" -> "STOP/STOP" right 0 8.0
+"与/CC" -> "STOP/STOP" left 0 1.0
+"开发/VV" -> "STOP/STOP" right 0 1.0
+"开发/VV" -> ".*./.*." left 0 1.0
+"开发/VV" -> ".*./.*." right 0 1.0
+"与/CC" -> ".*./.*." right 0 1.0
+"浦东/NR" -> ".*./.*." left 0 10.0
+"与/CC" -> ".*./.*." left 0 1.0
+"上海/NR" -> "STOP/STOP" right 0 4.0
+"上海/NR" -> ".*./.*." right 0 4.0
+"浦东/NR" -> "STOP/STOP" right 1 2.0
+"开发/VV" -> "STOP/STOP" left 1 1.0
+"上海/NR" -> ".*./.*." left 0 4.0
+"浦东/NR" -> ".*./.*." right 1 2.0
+"开发/VV" -> ".*./.*." left 1 1.0
+"上海/NR" -> "STOP/STOP" left 0 4.0
+
