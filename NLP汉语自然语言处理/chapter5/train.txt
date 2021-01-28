@@ -1,0 +1,1 @@
+在_P 包含_VV 问题_NN 的_DEC 所有_DT 解_VV 的_DEC 解空间_NN 树_NN 中_LC ，_PU 按照_P 深度优先_NN 搜索_NN 的_DEC 策略_NN ，_PU 从_P 根结点_NN 出发_VV 深度_JJ 探索_NN 解空间_NN 树_NN 。_PU
