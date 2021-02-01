@@ -98,5 +98,5 @@ for j in xrange(maxiter):
 	synapse_I_update *= 0;	synapse_O_update *= 0;	synapse_h_update *= 0
 	
 	# 逐次打印输出
-	showresult(j,overallError,d,c,a_int,b_int)
+	showresult(j, overallError, d, c, a_int, b_int)
 
