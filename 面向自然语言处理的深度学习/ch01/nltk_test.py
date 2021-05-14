@@ -1,5 +1,5 @@
 """
-NLTK
+NLTK在处理语料库、分类文本、分析语言结构等。
 """
 import nltk
 
