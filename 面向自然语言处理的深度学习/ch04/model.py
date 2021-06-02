@@ -2,6 +2,8 @@
 https://tangshusen.me/2019/03/09/tf-attention/
 """
 import tensorflow as tf
+
+# import tensorflow_addons as tfa
 import keras
 
 class SeqModel():
@@ -79,15 +81,11 @@ class SeqModel():
         """
         # attention 矩阵 U、V、K
         attention_states = tf.zeros([batch_size, 1, dec_cell.output_size])
-
-        # tf.contrib.seq2seq.prepare_attention
-        attention_mechanism = tf.contrib.seq2seq.BahdanauMonotonicAttention(
-            dec_cell.output_size, dec_cell
+        att_keys, att_vals, att_score_fn, att_construct_fn = tf.contrib.seq2seq.prepare_attention(
+            attention_states,
+            attention_option="bahdanau",
+            num_units=dec_cell.output_size
         )
-        attention_cell = tf.contrib.seq2seq.AttentionWrapper(dec_cell, attention_mechanism, batch_size,
-                                                             name="attention_wrapper")
-
-        init_state = attention_cell.zero_state(batch_size, tf.float32).clone(cell_state=encoder_state)
 
         train_decoder_fn = tf.contrib.seq2seq.attention_decoder_fn_train(encoder_state[0],
                                                                          att_keys,
@@ -227,10 +225,22 @@ class SeqModel():
         # tf.contrib.layers.embed_sequence 为句子产生词嵌入
         enc_embed_input = tf.contrib.layers.embed_sequence(
             input_data,
-            answers_vocab_size + 1,
-            enc_embedding_size,
+            vocab_size=answers_vocab_size + 1,
+            embed_dim=enc_embedding_size,
             initializer=tf.random_normal_initializer(0, 1)
         )
+        # with tf.variable_scope(
+        #         None, 'EmbedSequence', [input_data], reuse=None):
+        #     shape = [answers_vocab_size + 1, enc_embedding_size]
+        #
+        #     embeddings = tf.model_variables(
+        #         'embeddings',
+        #         shape=shape,
+        #         initializer=tf.random_normal_initializer(0, 1),
+        #         regularizer=None,
+        #         trainable=True)
+        #
+        #     enc_embed_input = tf.embedding_lookup(embeddings, input_data)
 
         enc_output, enc_state = self.encodig_layer(enc_embed_input,
                                        rnn_size,

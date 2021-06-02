@@ -15,12 +15,12 @@ print(' '.join(int_to_vocab[id] for id in X_train[0]))
 
 import tensorflow as tf
 print(tf.__version__)
-
-from tensorflow.python.ops import rnn, rnn_cell
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
+tf.compat.v1.disable_eager_execution()
+
 (X_train, y_train), (X_test, y_test) = imdb.load_data(path="imdb_full.pkl", num_words=None, skip_top=0,
                                                       maxlen=None, seed=113, start_char=1, oov_char=2, index_from=3)
 
@@ -32,7 +32,7 @@ vocabulary = len(set(t)) + 1
 # 数量分布
 a = [len(x) for x in X_train]
 plt.plot(a)
-plt.show()
+# plt.show()
 
 max_length = 200
 
@@ -52,7 +52,7 @@ for i in range(len(X_train)):
 
 # 超参数定义
 embedding_size = 100
-n_hidden = 200
+n_hidden = 254
 learning_rate = 0.06
 training_iters = 100000
 batch_size = 32
@@ -116,39 +116,38 @@ class DataIterator:
 # 初始化权重和偏差
 with tf.name_scope("weights"):
     Win = tf.Variable(
-        tf.compat.v1.random_uniform([n_hidden * r, hidden_units], -1/np.sqrt(n_hidden), 1/np.sqrt(n_hidden)),
+        tf.random.uniform([n_hidden * r, hidden_units], -1/np.sqrt(n_hidden), 1/np.sqrt(n_hidden)),
         name="W-input"
     )
 
     Wout = tf.Variable(
         # tf随机函数
-        tf.random_uniform([hidden_units, n_classes], -1/np.sqrt(n_hidden), 1/np.sqrt(n_hidden)),
+        tf.random.uniform([hidden_units, n_classes], -1/np.sqrt(n_hidden), 1/np.sqrt(n_hidden)),
         name="W-out"
     )
 
     Ws1 = tf.Variable(
-        tf.random_uniform([da, n_hidden], -1/np.sqrt(da), 1/np.sqrt(da)),
+        tf.random.uniform([da, n_hidden], -1/np.sqrt(da), 1/np.sqrt(da)),
         name="Ws1"
     )
 
     Ws2 = tf.Variable(
-        tf.random_uniform([r, da], -1/np.sqrt(r), 1/np.sqrt(r)),
+        tf.random.uniform([r, da], -1/np.sqrt(r), 1/np.sqrt(r)),
         name="Ws2"
     )
 
 
 with tf.name_scope("biases"):
-    biasesout = tf.Variable(tf.random_normal([n_classes]), name='biases-out')
-    biasesin = tf.Variable(tf.random_normal([hidden_units]), name='biases-in')
-
+    biasesout = tf.Variable(tf.random.uniform([n_classes]), name='biases-out')
+    biasesin = tf.Variable(tf.random.uniform([hidden_units]), name='biases-in')
 
 with tf.name_scope("input"):
-    x = tf.placeholder("int32", [32, max_length], name='x-input')
-    y = tf.placeholder("int32", [32, 2], name="y-input")
+    x = tf.compat.v1.placeholder("int32", [32, max_length], name='x-input')
+    y = tf.compat.v1.placeholder("int32", [32, 2], name="y-input")
 
 with tf.name_scope("embedding"):
     embedings = tf.Variable(
-        tf.random_uniform([vocabulary, embedding_size], -1, 1),
+        tf.random.uniform([vocabulary, embedding_size], -1, 1),
         name='embeddings'
     )
     embed = tf.nn.embedding_lookup(embedings, x)
@@ -162,27 +161,39 @@ def length(sequence):
     """
     # Computing maximum of elements across dimensions of a tensor
     used = tf.sign(
-        tf.reduce_max(tf.abs(sequence), reduction_indices=2)
+        tf.compat.v1.reduce_max(tf.abs(sequence), reduction_indices=2)
     )
-    length = tf.reduce_sum(used, reduction_indices=1)
+    length = tf.compat.v1.reduce_sum(used, reduction_indices=1)
     length = tf.cast(length, tf.int32)
-    
+
     return length
 
 
 # 下面的代码重算权重和偏差
-with tf.variable_scope("forward", reuse=True):
-    lstm_fw_cell = rnn_cell.BasicLSTMCell(n_hidden)
+with tf.compat.v1.variable_scope("forward", reuse=True):
+
+    lstm_fw_cell = tf.compat.v1.nn.rnn_cell.LSTMCell(n_hidden)
+    # lstm_fw_cell = tf.keras.layers.LSTMCell(n_hidden)
 
 with tf.name_scope("model"):
-    outputs, states = rnn.dynamic_rnn(lstm_fw_cell,
+    # outputs 维度：32 * 200* 200 batch_size * n_steps（句子长度） * 隐藏层大小
+    outputs, states = tf.compat.v1.nn.dynamic_rnn(lstm_fw_cell,
                                       embed,
                                       sequence_length=length(embed),
                                       dtype=tf.float32,
                                       time_major=False)
+    print("输出维度")
+    print(outputs.shape)
     # 下一步我们将隐藏向量与Ws1 相乘，重塑Ws1
-    h = tf.nn.tanh(
-        tf.transpose(tf.reshape(tf.matmul(Ws1, tf.reshape(outputs, [n_hidden, batch_size * n_steps])), [da, batch_size, n_steps]), [1, 0, 2])
+    h = tf.compat.v1.nn.tanh(
+        # 对矩阵转置
+        tf.compat.v1.transpose(
+            tf.compat.v1.reshape(
+                # tf.matmul 矩阵相乘
+                tf.compat.v1.matmul(Ws1, tf.compat.v1.reshape(outputs, [n_hidden, batch_size * n_steps])),
+                [da, batch_size, n_steps]
+            ), [1, 0, 2]
+        )
     )
 
     a = tf.reshape(
@@ -202,27 +213,31 @@ with tf.name_scope("model"):
 
         return tf.nn.softmax(x)
 
+    # a = softmax(Ws2 * tanh(Ws1 Ht)) Ht代表H的转置 H= （h1,h2,h3)
     h3 = tf.scan(fn3, a)
 
+# 定义嵌入矩阵
 with tf.name_scope("flattening"):
     h4 = tf.matmul(h3, outputs)
     last = tf.reshape(h4, [-1, r * n_hidden])
 
+# 定义注意力机制
 with tf.name_scope("MLP"):
-    tf.nn.dropout(last, .5, noise_shape=None, seed=None, name=None)
+    tf.nn.dropout(last, rate=1 - 0.5, noise_shape=None, seed=None, name=None)
     pred1 = tf.nn.sigmoid(tf.matmul(last, Win) + biasesin)
     pred = tf.matmul(pred1, Wout) + biasesout
 
 # 定义损失函数及优化器
 with tf.name_scope("cross"):
     cost = tf.reduce_mean(
-        tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y) + beta * tf.nn.l2_loss(Ws2)
+        tf.compat.v1.nn.softmax_cross_entropy_with_logits_v2(logits=pred, labels=y) + beta * tf.nn.l2_loss(Ws2)
     )
 
 with tf.name_scope("Train"):
-    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate)
+    optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=learning_rate)
     # 计算梯度
     gvs = optimizer.compute_gradients(cost)
+    # clip_by_norm 对梯度进行裁剪
     capped_gvs = [(tf.clip_by_norm(grad, 0.5), var) for grad, var in gvs]
     optimizer.apply_gradients(capped_gvs)
     optimized = optimizer.minimize(cost)
@@ -237,24 +252,25 @@ with tf.name_scope("Accuracy"):
         tf.cast(correct_pred, tf.float32)
     )
 
-tf.summary.scalar("cost", cost)
-tf.summary.scalar("accuracy", accuracy)
+tf.compat.v1.summary.scalar("cost", cost)
+tf.compat.v1.summary.scalar("accuracy", accuracy)
 
 # merge all summaries into a single "summary operation" which we can execute in a session
-summary_op = tf.summary.merge_all()
+summary_op = tf.compat.v1.summary.merge_all()
 training_iter = DataIterator(X_train, y_train, batch_size)
-init = tf.global_variables_initializer()
+init = tf.compat.v1.global_variables_initializer()
 
 # This could give warning if in case the required port is being used already
 # Running the command again or releasing the port before the subsequent run should solve the purpose
-with tf.Session() as sess:
+with tf.compat.v1.Session() as sess:
     sess.run(init)
-    writer = tf.summary.FileWriter(logs_path, graph=tf.get_default_graph())
+    writer = tf.compat.v1.summary.FileWriter(logs_path, graph=tf.compat.v1.get_default_graph())
 
     step = 1
     # Keep training until reach max iterations
     while step * batch_size < training_iters:
         batch_x, batch_y = training_iter.next_batch()
+        # 计算最小梯度
         sess.run(optimized,
                  feed_dict={x: batch_x, y: batch_y})
         # Executing the summary operation in the session
@@ -273,8 +289,3 @@ with tf.Session() as sess:
                   ", Training Accuracy= " + "{:.2f}".format(acc * 100) + "%")
         step += 1
     print("Optimization Finished!")
-
-
-    
-
-

@@ -72,6 +72,3 @@ mlp_keras.fit(X, Y,
               verbose=0)
 results_optim = mlp_keras.evaluate(X, Y)
 print("Accurary: %.2f%%" % (results_optim[1] * 100))
-
-
-

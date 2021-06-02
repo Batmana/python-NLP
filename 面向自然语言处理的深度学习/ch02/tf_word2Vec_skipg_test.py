@@ -44,6 +44,7 @@ extracted_folder = 'dataset'
 if not os.path.isdir(extracted_folder):
     with zipfile.ZipFile(zip_file) as zf:
         zf.extractall(extracted_folder)
+
 with open('dataset/text8') as ft_:
     full_text = ft_.read()
 
