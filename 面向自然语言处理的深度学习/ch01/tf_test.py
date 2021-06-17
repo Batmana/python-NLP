@@ -2,6 +2,7 @@
 Tf的示例代码
 """
 import tensorflow as tf
+tf.compat.v1.disable_eager_execution()
 hello = tf.constant("Hello,Tensors!")
 sess = tf.compat.v1.Session()
 print(sess.run(hello))
@@ -24,7 +25,7 @@ tf_mat_2 = tf.constant(mat_2)
 # Multiplying Tensorflow matrices with matrix multiplication
 # 将Tensorflow矩阵与矩阵相乘
 tf_mat_prod = tf.matmul(tf_mat_1, tf_mat_2)
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 
 # run（）执行必需的操作，并执行将输出存储在'mult_matrix'变量中的请求
 mult_matrix = sess.run(tf_mat_prod)

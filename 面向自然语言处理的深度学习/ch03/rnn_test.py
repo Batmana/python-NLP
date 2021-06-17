@@ -74,12 +74,15 @@ for each_line in f.readlines():
         if each_token in word2vec.vocab:
             new_word = word2vec.word_vec(each_token)
 
+        # 开始位置
         if offset1 == begin_offset:
             sent_list = np.append(sent_list, np.array([new_word]), axis=0)
             labels = np.append(labels, np.array([[0, 0, 1]]), axis=0)
+        # 中间位置
         elif offset == end_offset or offset in mid_offset:
             sent_list = np.append(sent_list, np.array([new_word]), axis=0)
             labels = np.append(labels, np.array([[0, 1, 0]]), axis=0)
+        # 结束位置
         else:
             sent_list = np.append(sent_list, np.array([new_word]), axis=0)
             labels = np.append(labels, np.array([[1, 0, 0]]), axis=0)
@@ -95,12 +98,11 @@ op_labels_ae = pad_sequences(op_labels_ae, maxlen=30, dtype='float64', padding='
 print(len(input_data_ae))
 print(len(op_labels_ae))
 
-from keras.preprocessing.text import Tokenizer
-from keras.layers import Dense, Input, LSTM, Embedding, Dropout, Activation, Bidirectional, TimeDistributed
-from keras.layers.merge import concatenate
-from keras.models import Model, Sequential
-from keras.layers.normalization import BatchNormalization
-from keras.callbacks import EarlyStopping, ModelCheckpoint
+
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.layers import Dense, Input, LSTM, Embedding, Dropout, Activation, Bidirectional, TimeDistributed
+from tensorflow.keras.models import Model, Sequential
+
 
 x_train = input_data_ae[:4000]
 x_test = input_data_ae[4000:]
@@ -109,7 +111,7 @@ y_train = op_labels_ae[:4000]
 y_test = op_labels_ae[4000:]
 batch = 1
 
-xin = Input(batch_shape=(None, 30, 200), dtype='float')
+xin = Input(batch_shape=(batch, 30, 200), dtype='float')
 seq = Bidirectional(LSTM(
     300,
     return_sequences=True

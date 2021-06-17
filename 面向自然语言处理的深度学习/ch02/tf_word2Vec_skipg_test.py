@@ -3,16 +3,11 @@ Importing the required packages
 """
 import random
 import collections
-import math
 import os
 import zipfile
 import time
-import re
 import numpy as np
 import tensorflow as tf
-
-from matplotlib import pylab
-
 from six.moves import range
 from six.moves.urllib.request import urlretrieve
 
@@ -229,8 +224,8 @@ with tf_graph.as_default():
 Creating the model checkpoint directory 
 """
 epochs = 2
-batch_length = 1000
-word_window = 2
+batch_length = 300
+word_window = 10
 
 with tf_graph.as_default():
     saver = tf.compat.v1.train.Saver()

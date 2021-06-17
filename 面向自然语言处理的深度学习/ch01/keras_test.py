@@ -49,15 +49,18 @@ opt = SGD(lr=0.01)
 mlp_keras = Sequential()
 mlp_keras.add(Dense(8,
                     input_dim=4,
-                    init='uniform',
+                    kernel_initializer='uniform',
+                    bias_initializer='uniform',
                     activation='relu'
                     ))
 mlp_keras.add(Dense(6,
-                    init="uniform",
+                    kernel_initializer="uniform",
+                    bias_initializer='uniform',
                     activation='relu'
                     ))
 mlp_keras.add(Dense(1,
-                    init="uniform",
+                    kernel_initializer="uniform",
+                    bias_initializer='uniform',
                     activation='sigmoid'
                     ))
 

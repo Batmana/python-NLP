@@ -203,7 +203,7 @@ with tf_cbow_graph.as_default():
     # tf.stack 矩阵拼接
     embedding = tf.reduce_mean(tf.stack(axis=0, values=context_embeddings),
                                0,
-                               keep_dims=False)
+                               keepdims=False)
 
 # 以下代码使用64个单词的负采样计算softmax损失
 with tf_cbow_graph.as_default():
