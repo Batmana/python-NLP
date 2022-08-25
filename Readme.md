@@ -5,8 +5,8 @@
 3） Python数据挖掘与实战 (PythonDataMining) [fork原地址](https://github.com/LinXueyuanStdio/PythonDataMining) <br>
 4)  面试自然语言处理的深度学习 [其他代码](https://github.com/palashgoyal1/Deep_Learning_for_Natural_Language_Processing) <br> 
 
-##### 学习-实践
-1. 
+##### 学习-实践 (nlp_practice)
+1. tianchi (天池比赛及学习)
 
 ##### 优秀博客
 1. [FAQ挖掘技术](https://blog.csdn.net/zp563987805/article/details/104350670)
